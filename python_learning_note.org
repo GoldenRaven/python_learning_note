@@ -1,0 +1,578 @@
+* 0. python support in org mode
+** python code block
+#+begin_src python :results value
+return 2/3
+#+end_src
+
+#+RESULTS:
+: 0.6666666666666666
+
+#+begin_src python :results output
+print(2/3)
+#+end_src
+
+#+RESULTS:
+: 0.6666666666666666
+
+#+begin_src python :results output :session
+print(2/3)
+#+end_src
+
+#+RESULTS:
+: 0.6666666666666666
+
+** inline calling
+Two plus two equals src_python{return(2+2)}
+** plotting
+#+begin_src python :results file
+import matplotlib, numpy
+#matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=numpy.linspace(-15,15)
+plt.plot(numpy.sin(x)/x)
+fig.tight_layout()
+plt.savefig('python-matplot-fig.png')
+return 'python-matplot-fig.png' # return filename to org-mode
+#+end_src
+
+#+RESULTS:
+[[file:python-matplot-fig.png]]
+
+* 1. A primer on scientific programming with python
+** using a program as a calculator
+#+begin_src python :results output
+print(5*0.6 - 0.5*9.81*0.6**2)
+#+end_src
+
+#+RESULTS:
+: 1.2342
+** using variables
+#+begin_src python :results output
+v0 = 5
+g = 9.81
+t = 0.6
+y = v0*t - 0.5*g*t**2
+print(y)
+#+end_src
+
+#+RESULTS:
+: 1.2342
+** Important print syntax
+   - State "Important"  from ""           [2018-05-06 Sun 13:48]
+#+begin_src python :results output
+v0 = 5
+g = 9.81
+t = 0.6
+y = v0*t - 0.5*g*t**2
+print('At t=%g s, the height of the ball is %.2f m.' % (t,y))
+#+end_src
+
+#+RESULTS:
+: At t=0.6 s, the height of the ball is 1.23 m.
+#+begin_src python :results output
+print("""y(t) is
+the position of
+our ball.""")
+print()
+print('y(t) is\nthe position of\nour ball')
+#+end_src
+
+#+RESULTS:
+: y(t) is
+: the position of
+: our ball.
+:
+: y(t) is
+: the position of
+: our ball
+* 2. Liaoxuefeng python3
+** python 基础
+以#开头的语句是注释
+每一行都是一个语句
+当语句以冒号:结尾时，缩进的语句视为代码块。
+应该始终坚持使用4个空格的缩进。
+Python程序是大小写敏感的
+
+# print absolute value of an integer:
+#+begin_src python :results output
+a = 100
+if a >= 0:
+    print(a)
+else:
+    print(-a)
+#+end_src
+
+#+RESULTS:
+: 100
+*** 数据类型
+- 整数
+  Python可以处理任意大小的整数
+- 浮点数
+- 字符串
+  + 字符串是以单引号'或双引号"括起来的任意文本
+  + 如果'本身也是一个字符，那就可以用""括起来
+  + 如果字符串内部既包含'又包含",可以用转义字符\来标识
+  + 允许用r''表示''内部的字符串默认不转义
+  + 允许用'''...'''的格式表示多行内容
+- 布尔值
+  + 只有True、False两种值
+  + and or not
+- 空值none
+- 变量，动态语言与静态语言
+- 常量
+  + 通常用全部大写的变量名表示常量
+#+begin_src python :results output
+print('I\'m ok.')
+print('I\'m learning\nPython.')
+print('\\\n\\')
+print(r'''hello,\n
+world''')
+#+end_src
+
+#+RESULTS:
+: I'm ok.
+: I'm learning
+: Python.
+: \
+: \
+: hello,\n
+: world
+*** Important 字符串与编码
+    - State "Important"  from ""           [2018-05-03 Thu 10:49]
+# -*- coding: utf-8 -*-
+- %运算符就是用来格式化字符串的。
+- 在字符串内部，%s表示用字符串替换，
+- %d表示用整数替换，
+- 有几个%?占位符，后面就跟几个变量或者值，顺序要对应好。
+- 如果只有一个%?，括号可以省略。
+- 格式化整数和浮点数还可以指定是否补0和整数与小数的位数
+- %s永远起作用，它会把任何数据类型转换为字符串
+
+- %d	整数
+- %f	浮点数
+- %s	字符串
+- %x	十六进制整数
+
+#+begin_src python :results output
+print('Hello, %s' % 'world')
+print('Hi, %s, you have $%d.' % ('Michael', 1000000))
+print('%4d-%0004d' % (3, 1))
+print('%.2f' % 3.1415926)
+#+end_src
+
+#+RESULTS:
+: Hello, world
+: Hi, Michael, you have $1000000.
+:    3-0001
+: 3.14
+*** list与tuple <2018-05-03 Thu>
+**** list
+- 索引是从0开始
+- 用-1做索引，直接获取最后一个元素
+- 往list中追加元素到末尾, classmates.append('Adam')
+- 把元素插入到指定的位置, classmates.insert(1,'Jack')
+- 删除list末尾的元素，用pop()
+- 删除指定位置的元素，用pop(i)
+#+begin_src python :results output
+classmates = ['Michael', 'Bob', 'Tracy']
+print(classmates)
+print(len(classmates))
+print(classmates[-3])
+classmates.append('Adam')
+print(classmates)
+#+end_src
+
+#+RESULTS:
+: ['Michael', 'Bob', 'Tracy']
+: 3
+: Michael
+: ['Michael', 'Bob', 'Tracy', 'Adam']
+**** tuple
+tuple和list非常类似，但是tuple一旦初始化就不能修改
+#+begin_src python :results output
+classmates = ('Michael', 'Bob', 'Tracy')
+t = (1,)
+#+end_src
+*** Important 条件判断 <2018-05-04 Fri>
+    - State "Important"  from ""           [2018-05-04 Fri 09:30]
+- if语句的完整形式
+  if <条件判断1>:
+      <执行1>
+  elif <条件判断2>:
+      <执行2>
+  elif <条件判断3>:
+      <执行3>
+  else:
+      <执行4>
+它是从上往下判断，如果在某个判断上是True，
+把该判断对应的语句执行后，就忽略掉剩下的elif和else.
+##########################################################################
+- 只要条件为非零数值、非空字符串、非空list等，就判断为True，否则为False。#
+##########################################################################
+*** 循环 <2018-05-04 Fri>
+- for x in list:
+- while x :
+- break
+- continue
+#+begin_src python :results output
+print(range(5))
+print(list(range(5)))
+for i in range(5):
+    print(i)
+#+end_src
+
+#+RESULTS:
+: range(0, 5)
+: [0, 1, 2, 3, 4]
+: 0
+: 1
+: 2
+: 3
+: 4
+*** 使用dict <2018-05-05 Sat>
+dict全称dictionary，在其他语言中也称为map，
+使用键-值（key-value）存储，具有极快的查找速度。
+把数据放入dict的方法，除了初始化时指定外，还可以通过key放入
+要避免key不存在的错误，有两种办法:
+- 通过in判断key是否存在
+- 通过dict提供的get()方法，如果key不存在，
+  可以返回None，或者自己指定的value
+要删除一个key，用pop(key)方法，对应的value也会从dict中删除
+请务必注意，dict内部存放的顺序和key放入的顺序是没有关系的
+##########################################################
+##  和list比较，dict有以下几个特点：
+##  查找和插入的速度极快，不会随着key的增加而变慢；
+##  需要占用大量的内存，内存浪费多。
+##
+##  而list相反：
+##  查找和插入的时间随着元素的增加而增加；
+##  占用空间小，浪费内存很少。
+##  所以，dict是用空间来换取时间的一种方法。
+##########################################################
+- 哈希算法（Hash）
+- 作为key的对象就不能变。在Python中，字符串、整数等都是不可变的，
+  因此，可以放心地作为key。而list是可变的，就不能作为key
+#+begin_src python :results output
+d={'Michael': 95, 'Bob':75, 'Tracy':85}
+d['Adam'] = 67
+print(d['Michael'])
+print('Adam' in d)
+print(d.get('Tom', 0))
+print(d.pop('Bob'))
+print(d)
+#+end_src
+
+#+RESULTS:
+: 95
+: True
+: 0
+: 75
+: {'Michael': 95, 'Tracy': 85, 'Adam': 67}
+*** 使用set <2018-05-05 Sat>
+- set和dict类似，也是一组key的集合，但不存储value。
+  由于key不能重复，所以，在set中，没有重复的key。
+- 通过add(key)方法可以添加元素到set中
+- 过remove(key)方法可以删除元素
+#+begin_src python :results output
+s = set([1, 2, 3])
+print(s)
+s1 = set([1, 2, 3])
+s2 = set([2, 3, 4])
+print(s1 & s2)
+print(s1 | s2)
+print(set((1,2,3)))
+# print(set((1,[2,3])))
+new_dict={'Wang':59}
+new_dict['Ligy']=100
+print(new_dict)
+#+end_src
+
+#+RESULTS:
+: {1, 2, 3}
+: {2, 3}
+: {1, 2, 3, 4}
+: {1, 2, 3}
+: {'Wang': 59, 'Ligy': 100}
+
+** 函数
+*** 调用函数 <2018-05-06 Sun>
+- 可以在交互式命令行通过help(abs)查看abs函数的帮助信息
+*** 数据类型转换 <2018-05-06 Sun>
+- int('123')
+- float('12.4')
+- str(1.2)
+- bool(1)
+- bool('')
+- 函数名其实就是指向一个函数对象的引用，
+  完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名
+#+begin_src python :results output
+print(bool("2"))
+a = abs
+print(a(-9))
+tuple_={'255':hex(int('255'))}
+tuple_['1000']=hex(int('1000'))
+print(tuple_['255'],tuple_['1000'])
+print('255的16进制表示为%s\n1000的16进制表示为%s' % (hex(255), hex(1000)))
+#+end_src
+
+#+RESULTS:
+: True
+: 9
+: 0xff 0x3e8
+: 255的16进制表示为0xff
+: 1000的16进制表示为0x3e8
+*** 定义函数 <2018-05-06 Sun>
+- 定义一个函数要使用def语句，依次写出函数名、括号、
+  括号中的参数和冒号:，然后，在缩进块中编写函数体，
+  函数的返回值用return语句返回。
+- 函数体内部的语句在执行时，一旦执行到return时，
+  函数就执行完毕，并将结果返回
+- 如果没有return语句，函数执行完毕后也会返回结果，只是结果为None
+- 果你已经把my_abs()的函数定义保存为abstest.py文件了，
+  那么，可以在该文件的当前目录下启动Python解释器，
+  用from abstest import my_abs来导入my_abs()函数，
+  注意abstest是文件名（不含.py扩展名）
+- pass语句什么都不做，那有什么用？实际上pass可以用来作为占位符，
+  比如现在还没想好怎么写函数的代码，就可以先放一个pass，
+  让代码能运行起来。
+#+begin_src python :results output
+def my_print(x):
+    print('what\'s up man?')
+    # return x*x
+a=my_print(3)
+print(a)
+#+end_src
+
+#+RESULTS:
+: what's up man?
+: None
+**** 空函数
+**** 参数检查
+数据类型检查可以用内置函数isinstance()实现。
+#+begin_src python :return output
+def my_abs(x):
+    if not isinstance(x, (int, float)):
+        raise TypeError('bad operand type')
+    if x >= 0:
+        return x
+    else:
+        return -x
+my_abs('A')
+#+end_src
+
+#+RESULTS:
+**** 返回多个值
+Python的函数返回多值其实就是返回一个tuple，但写起来更方便
+return nx, ny
+*** 函数的参数 <2018-05-07 Mon>
+- 位置参数 power(x), power(x, n), 调用函数时，
+  传入的两个值按照位置顺序依次赋给参数x和n
+- 默认参数 power(x, n=2)
+  设置默认参数时，有几点要注意:
+  + 一是必选参数在前，默认参数在后，否则Python的解释器会报错
+  + 二是当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。
+    变化小的参数就可以作为默认参数。
+  + 有多个默认参数时，调用的时候，既可以按顺序提供默认参数，
+    比如调用enroll('Bob', 'M', 7)用在参数age上，
+    city参数由于没有提供，仍然使用默认值。
+  + 也可以不按顺序提供部分默认参数。
+    当不按顺序提供部分默认参数时，需要把参数名写上。
+  + 定义默认参数要牢记一点：默认参数必须指向不变对象！
+#+begin_src python :results output
+def add_end(L=[]):
+    if L is None:
+        L = []
+    L.append('END')
+    return L
+print(add_end())
+print(add_end())
+
+def add_end(L=None):
+    if L is None:
+        L = []
+    L.append('END')
+    return L
+print(add_end())
+print(add_end())
+#+end_src
+
+#+RESULTS:
+: ['END']
+: ['END', 'END']
+: ['END']
+: ['END']
+**** TODO 可变参数
+     - State "TODO"       from ""           [2018-05-07 Mon 19:18]
+**** TODO 关键字参数
+     - State "TODO"       from ""           [2018-05-07 Mon 19:19]
+**** TODO 命名关键字参数
+     - State "TODO"       from ""           [2018-05-07 Mon 19:20]
+**** TODO 参数组合
+     - State "TODO"       from ""           [2018-05-07 Mon 19:20]
+**** TODO 小结
+     - State "TODO"       from ""           [2018-05-07 Mon 19:20]
+*** TODO 递归函数 <2018-05-07 Mon>
+    - State "TODO"       from ""           [2018-05-07 Mon 19:24]
+** 高级特性
+在Python中，代码不是越多越好，而是越少越好。
+代码不是越复杂越好，而是越简单越好。
+*** 切片 <2018-05-07 Mon>
+L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+
+- 取前3个元素 L[0:3]
+- 倒数切片 L[-2:]
+- L[:2] 索引 L[0], L[1]
+- 空的list也可以用L[:1]的方式索引
+- 倒序索引 L[-1::-1]
+#+begin_src python :results output
+L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+print(len(L))
+#print(L[:3])
+#print(L[1:3])
+#print(L[-5])
+print(L[-4:100])
+print(L[-1::-1])
+print(L[0])
+N = list(range(40))
+print(N[:20:3])
+print(N[:])
+print((0, 1, 2, 3, 4, 5, 6, 7, 8)[:3])
+print('abcdefghi'[::2])
+L1=''
+print(L1[:-1])
+print(len(L1))
+def trim(str_):
+    if not isinstance(str_, str):
+        raise TypeError('bad operand type')
+
+    while str_[:1]==' ':
+        str_=str_[1:]
+        print(str_)
+    while str_[-1:]==' ':
+        str_=str_[-len(str_):-2]
+        print(str_)
+    return str_
+#+end_src
+
+#+RESULTS:
+#+begin_example
+5
+['Sarah', 'Tracy', 'Bob', 'Jack']
+['Jack', 'Bob', 'Tracy', 'Sarah', 'Michael']
+Michael
+[0, 3, 6, 9, 12, 15, 18]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+(0, 1, 2)
+acegi
+
+0
+#+end_example
+*** 迭代 <2018-05-08 Tue>
+- 如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，
+  这种遍历我们称为迭代（Iteration）。
+- 在Python中，迭代是通过for ... in来完成的，而很多语言比如C语言，
+  迭代list是通过下标完成的，比如Java代码
+- list这种数据类型虽然有下标，但很多其他数据类型是没有下标的，但是，
+  只要是可迭代对象，无论有无下标，都可以迭代，比如dict就可以迭代
+- 默认情况下，dict迭代的是key。如果要迭代value，可以用for value in d.values()，
+  如果要同时迭代key和value，可以用for k, v in d.items()。
+- 由于字符串也是可迭代对象，因此，也可以作用于for循环
+- 如何判断一个对象是可迭代对象呢？
+  方法是通过collections模块的Iterable类型判断
+- enumerate函数可以把一个list变成索引-元素对，
+  这样就可以在for循环中同时迭代索引和元素本身
+- 上面的for循环里，同时引用了两个变量，在Python里是很常见的
+  ，比如下面的代码
+#+begin_src python :results output
+d = {'a': 1, 'b': 2, 'c': 3}
+for k, v in d.items():
+    print(k, v)
+for ch in 'AbC':
+    print(ch, 'Abc'[::-1])
+from collections import Iterable
+print(isinstance('abc', Iterable)) # str是否可迭代
+for i, value in enumerate(['A', 'B', 'C']):
+    print(i, value)
+for x, y in [(1, 'a'), (2, d), (3, v)]:
+    print(x, y)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+a 1
+b 2
+c 3
+A cbA
+b cbA
+C cbA
+True
+0 A
+1 B
+2 C
+1 a
+2 {'a': 1, 'b': 2, 'c': 3}
+3 3
+#+end_example
+
+*** 列表生成式 <2018-05-21 Mon>
+list comprehensions
+列表生成式则可以用一行语句代替循环生成上面的list
+#+begin_src python :results output
+print([x*x for x in range(1,11)])
+print([x*x for x in range(1,11) if x%3==0])
+print([m+n for m in 'abc' for n in 'xyz'])
+import os
+print(os.listdir('.'))
+print([d for d in os.listdir('.')])
+print('ABcd'.lower(), 'fdsa'.upper())
+print('abc'[2])
+L = ['Hello', 'World', 18, 'Apple', None]
+print([s.lower() for s in L if isinstance(s, str)])
+print([s.lower() if isinstance(s, str) else s for s in L])
+#+end_src
+
+#+RESULTS:
+: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+: [9, 36, 81]
+: ['ax', 'ay', 'az', 'bx', 'by', 'bz', 'cx', 'cy', 'cz']
+: ['PythonPlottingBeginnersGuide.pdf', 'inset', 'A_Primer_on_Scientific_Programming_with_Python.pdf', 'learnxinyminutes-docs', 'python_learning_note.org_archive', 'intro_mnist', 'report-fig2', 'python_learning_note.org', 'test', 'energy_per_magnon']
+: ['PythonPlottingBeginnersGuide.pdf', 'inset', 'A_Primer_on_Scientific_Programming_with_Python.pdf', 'learnxinyminutes-docs', 'python_learning_note.org_archive', 'intro_mnist', 'report-fig2', 'python_learning_note.org', 'test', 'energy_per_magnon']
+: abcd FDSA
+: c
+: ['hello', 'world', 'apple']
+: ['hello', 'world', 18, 'apple', None]
+
+* 3. Tensor flow 中文社区
+url:http://www.tensorfly.cn/tfdoc/get_started/introduction.html
+#+begin_src python :results output
+import tensorflow as tf
+#+end_src
+** 介绍
+*** intro_mnist
+**** mnist 数据集 <2018-05-05 Sat>
+- mnist.train.images [6000, 28*28]
+  数据集的标签是0到9的数字，是一个one-hot vector, (只有一个元素为1,其他为0.)
+  0表示为 [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+- mnist.train.labels [6000, 10]
+**** softmax regression 介绍
+*** expert_mnist
+** MNIST introduction
+在机器学习模型设计时必须有一个单独的测试数据集不用于训练
+而是用来评估这个模型的性能，从而更加容易把设计的模型推广
+到其他数据集上（泛化）。
+* 4. Google机器学习速成课程
+url:https://developers.google.cn/machine-learning/crash-course/
+* 5. Python 命令笔记
+** <2018-05-21 Mon>
+os.listdir('.')
+'AbC'.lower()
+'AbC'.upper()
+'abc'[2]
+for k, v in {'x': 'A', 'y': 'B'}.items():
+    pass
+L=[]
+L.append(x)
+L.pop()
+L.pop(3)
+d.pop('Jack')
