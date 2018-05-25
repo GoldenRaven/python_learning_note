@@ -627,6 +627,19 @@ isinstance((x for x in range(10)), Iterator)
 : True
 *** TODO 函数式编程
     - State "TODO"       from ""           [2018-05-25 Fri 16:52]
+*** module 模块<2018-05-25 Fri>
+为了避免模块名冲突，Python引入了按目录来组织模块的方法，
+称为Package（包）
+- 一个abc.py的文件就是一个名字叫abc的模块，
+- 一个xyz.py的文件就是一个名字叫xyz的模块
+- 每一个包目录下面都会有一个__init__.py的文件，这个文件是必须存在的
+- abc.py模块的名字就变成了mycompany.abc，类似的，
+- xyz.py的模块名变成了mycompany.xyz
+- __init__.py可以是空文件，也可以有Python代码，
+  因为__init__.py本身就是一个模块，而它的模块名就是mycompany
+- 可以有多级目录，组成多级层次的包结构
+- 模块名不要和系统模块名冲突，最好先查看系统是否已存在该模块，
+  检查方法是在Python交互环境执行import abc，若成功则说明系统存在此模块
 * 3. Tensor flow 中文社区
 url:http://www.tensorfly.cn/tfdoc/get_started/introduction.html
 #+begin_src python :results output
