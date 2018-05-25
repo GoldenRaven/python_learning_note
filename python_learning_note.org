@@ -417,7 +417,7 @@ print(add_end())
 ** 高级特性
 在Python中，代码不是越多越好，而是越少越好。
 代码不是越复杂越好，而是越简单越好。
-*** 切片 slice <2018-05-07 Mon>
+*** slice 切片 <2018-05-07 Mon>
 L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 
 - 取前3个元素 L[0:3]
@@ -468,7 +468,7 @@ acegi
 
 0
 #+end_example
-*** 迭代 iteration <2018-05-08 Tue>
+*** iteration 迭代 <2018-05-08 Tue>
 - 如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，
   这种遍历我们称为迭代（Iteration）。
 - 在Python中，迭代是通过for ... in来完成的，而很多语言比如C语言，
@@ -515,7 +515,7 @@ True
 3 3
 #+end_example
 
-*** 列表生成式 list comprehensions <2018-05-21 Mon>
+*** list comprehensions 列表生成式 <2018-05-21 Mon>
 列表生成式则可以用一行语句代替循环生成上面的list
 #+begin_src python :results output
 print([x*x for x in range(1,11)])
@@ -542,7 +542,7 @@ print([s.lower() if isinstance(s, str) else s for s in L])
 : ['hello', 'world', 'apple']
 : ['hello', 'world', 18, 'apple', None]
 
-*** 生成器 generator <2018-05-24 Thu>
+*** generator 生成器 <2018-05-24 Thu>
 受到内存限制，列表容量肯定是有限的,
 在Python中，这种一边循环一边计算的机制，称为生成器：generator。
 创建一个generator的方法:
@@ -598,6 +598,35 @@ for i in f:
 34
 #+end_example
 
+*** Iterator 迭代器 <2018-05-25 Fri>
+可以使用isinstance()判断一个对象是否是Iterable
+可以被next()函数调用并不断返回下一个值的对象称为Iterator
+生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator
+把list、dict、str等Iterable变成Iterator可以使用iter()函数
+Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算
+- 凡是可作用于for循环的对象都是Iterable类型
+- 凡是可作用于next()函数的对象都是Iterator类型
+- Python的for循环本质上就是通过不断调用next()函数实现的
+#+begin_src python :results output
+from collections import Iterable
+print(isinstance([], Iterable))
+print(isinstance({}, Iterable))
+print(isinstance('abs', Iterable))
+print(isinstance((x for x in range(9)), Iterable))
+print(isinstance(range(9), Iterable))
+from collections import Iterator
+isinstance((x for x in range(10)), Iterator)
+
+#+end_src
+
+#+RESULTS:
+: True
+: True
+: True
+: True
+: True
+*** TODO 函数式编程
+    - State "TODO"       from ""           [2018-05-25 Fri 16:52]
 * 3. Tensor flow 中文社区
 url:http://www.tensorfly.cn/tfdoc/get_started/introduction.html
 #+begin_src python :results output
@@ -637,4 +666,8 @@ d.pop('Jack')
 - tuple
 - range(9)
 - dictionary
+- set
+- str
 - generator
+  - 生成器
+  - generator function
