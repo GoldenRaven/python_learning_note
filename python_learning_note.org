@@ -670,6 +670,10 @@ def greeting(name):
   这也是一种非常有用的代码封装和抽象的方法
 - 外部不需要引用的函数全部定义成private，
   只有外部需要引用的函数才定义为public
+*** 安装第三方模块 <2018-06-07 Thu>
+pip install pillow
+*** 安装常用模块 <2018-06-07 Thu>
+anaconda3
 * 3. Tensor flow 中文社区
 url:http://www.tensorfly.cn/tfdoc/get_started/introduction.html
 #+begin_src python :results output
