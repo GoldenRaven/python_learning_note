@@ -673,7 +673,12 @@ def greeting(name):
 *** 安装第三方模块 <2018-06-07 Thu>
 pip install pillow
 *** 安装常用模块 <2018-06-07 Thu>
-anaconda3
+- anaconda3 (狂蟒之灾电影）
+- 默认情况下，Python解释器会搜索当前目录、所有已安装的内置模块和第三方模块，
+  搜索路径存放在sys模块的path变量中
+- 添加自己的搜索目录，有两种方法:
+  - sys.path.append('/Users/michael/my_py_scripts')
+  - 设置环境变量PYTHONPATH
 * 3. Tensor flow 中文社区
 url:http://www.tensorfly.cn/tfdoc/get_started/introduction.html
 #+begin_src python :results output
