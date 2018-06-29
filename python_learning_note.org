@@ -673,12 +673,60 @@ def greeting(name):
 *** 安装第三方模块 <2018-06-07 Thu>
 pip install pillow
 *** 安装常用模块 <2018-06-07 Thu>
-- anaconda3 (狂蟒之灾电影）
+- anaconda (狂蟒之灾电影）
 - 默认情况下，Python解释器会搜索当前目录、所有已安装的内置模块和第三方模块，
   搜索路径存放在sys模块的path变量中
 - 添加自己的搜索目录，有两种方法:
   - sys.path.append('/Users/michael/my_py_scripts')
   - 设置环境变量PYTHONPATH
+** 面向对象编程 Object Oriented Programming
+- OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数.
+- 在Python中，所有数据类型都可以视为对象，当然也可以自定义对象。
+- 自定义的对象数据类型就是面向对象中的类（Class）的概念。
+- 数据封装、继承和多态是面向对象的三大特点
+*** 类与实例 Class Instance
+- 类名通常是大写开头的单词
+- 创建实例是通过类名+()实现的
+- My_students本身则是一个类
+- 可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性
+- 有了__init__方法，在创建实例的时候，就不能传入空的参数了，
+  必须传入与__init__方法匹配的参数，但self不需要传
+- 除self之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、
+  可变参数、关键字参数和命名关键字参数。
+- 这些封装数据的函数是和Student类本身是关联起来的，我们称之为类的方法
+- 义一个方法，除了第一个参数是self外，其他和普通函数一样。
+- 调用一个方法，只需要在实例变量上直接调用，除了self不用传递，其他参数正常传入
+# #################################################################################
+- 和静态语言不同，Python允许对实例变量绑定任何数据，也就是说，对于两个实例变量，
+  虽然它们都是同一个类的不同实例，但拥有的变量名称都可能不同
+# #################################################################################
+#+begin_src python :results output
+class My_students(object):
+    pass
+ligy = My_students()
+ligy.name = 'Li Gaoyang'
+ligy.age = 26
+print(ligy.name, ligy.age)
+print(My_students)
+class My_students2():
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+mark = My_students2('Mark', '99')
+john = My_students2('John Nash', 100)
+john.age = 70
+print(mark.name)
+mark.print_score()
+#+end_src
+
+#+RESULTS:
+: Li Gaoyang 26
+: <class '__main__.My_students'>
+: Mark
+: Mark: 99
+
 * 3. Tensor flow 中文社区
 url:http://www.tensorfly.cn/tfdoc/get_started/introduction.html
 #+begin_src python :results output
