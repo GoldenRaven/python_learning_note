@@ -739,6 +739,30 @@ mark.print_score()
   因为不同版本的Python解释器可能会把__name改成不同的变量名
 - 表面上看，外部代码“成功”地设置了__name变量，但实际上这个__name变量和class内部的__name变量不是一个变量！
   内部的__name变量已经被Python解释器自动改成了_Student__name，而外部代码给bart新增了一个__name变量
+#+begin_src python :results output
+class Student(object):
+    def __init__(self, name, gender):
+        self.name = name
+        self.__gender = gender
+    def set_gender(self, gender):
+        self.__gender = gender
+    def get_gender(self):
+        return self.__gender
+bart = Student('Bart', 'male')
+if bart.get_gender() != 'male':
+    print('测试失败!')
+else:
+    bart.set_gender('female')
+    if bart.get_gender() != 'female':
+        print('测试失败!')
+    else:
+        print('测试成功!')
+
+#+end_src
+
+#+RESULTS:
+: 测试成功!
+
 * 3. Tensor flow 中文社区
 url:http://www.tensorfly.cn/tfdoc/get_started/introduction.html
 #+begin_src python :results output
