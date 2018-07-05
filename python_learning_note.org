@@ -763,6 +763,37 @@ else:
 #+RESULTS:
 : 测试成功!
 
+*** 继承与多态 <2018-07-05 Thu>
+- 继承最大的好处是子类获得了父类的全部功能
+- 当子类和父类都存在相同的方法时，子类的方法覆盖了父类的方法
+- 判断一个变量是否是某个类型可以用isinstance()判断
+- 如果一个实例的数据类型是某个子类，那它的数据类型也可以被看做是父类
+- 调用方只管调用，不管细节
+“开闭”原：
+- 对扩展开放：允许新增Animal子类
+- 对修改封闭：不需要修改依赖Animal类型的run_twice()等函数
+动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭,
+走起路来像鸭子”，那它就可以被看做是鸭子
+小结
+- 继承可以把父类的所有功能都直接拿过来，这样就不必重零做起，
+  子类只需要新增自己特有的方法，也可以把父类不适合的方法覆盖重写。
+- 动态语言的鸭子类型特点决定了继承不像静态语言那样是必须的。
+#+begin_src python :results output
+class Animal(object):
+    def run(self):
+        print('Animal is running...')
+class Dog(Animal):
+    def run(self):
+        print('Dog is running...')
+dog1 = Dog()
+dog1.run()
+dog1.run()
+#+end_src
+
+#+RESULTS:
+: Dog is running...
+: Dog is running...
+
 * 3. Tensor flow 中文社区
 url:http://www.tensorfly.cn/tfdoc/get_started/introduction.html
 #+begin_src python :results output
