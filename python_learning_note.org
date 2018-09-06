@@ -841,6 +841,13 @@ import tensorflow as tf
   0表示为 [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 - mnist.train.labels [6000, 10]
 **** softmax regression 介绍
+- softmax模型可以用来给不同的对象分配概率。即使在之后，我们训练更加精细的模型时，
+  最后一步也需要用softmax来分配概率。
+- 为了用python实现高效的数值计算，我们通常会使用函数库，比如NumPy，
+  会把类似矩阵乘法这样的复杂运算使用其他外部语言实现。
+  不幸的是，从外部计算切换回Python的每一个操作，仍然是一个很大的开销。
+- Tensorflow不单独地运行单一的复杂计算，
+  而是让我们可以先用图描述一系列可交互的计算操作，然后全部一起在Python之外运行。
 *** expert_mnist
 ** MNIST introduction
 在机器学习模型设计时必须有一个单独的测试数据集不用于训练
@@ -903,3 +910,28 @@ print(plt.rcParams['axes.prop_cycle'].by_key()['color'])
 
 #+RESULTS:
 : ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
+* 7. git@github.com:lijin-THU/notes-python.git
+** 基础
+*** 文件读写 <2018-09-04 Tue>
+url: https://github.com/lijin-THU/notes-python/blob/master/02-python-essentials/02.21-file-IO.ipynb
+Control + RightClick
+*** numpy <2018-09-04 Tue 11:14>
+- numpy中array()方法与基本库中list有很大不同，注意不要混淆！！！
+- 修改array的形状,shape方法
+#+begin_src python :results output
+a = [1, 2, 3, 4]
+import numpy
+b = numpy.array(a)
+print(a * 2)
+print(b * 2)
+print(b.shape)
+b.shape = 2,2
+print(b)
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3, 4, 1, 2, 3, 4]
+: [2 4 6 8]
+: (4,)
+: [[1 2]
+:  [3 4]]
