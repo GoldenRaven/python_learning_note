@@ -971,3 +971,52 @@ s
 [ 0.9424778   1.25663706  1.57079633  1.88495559  2.19911486]
 [ 0.80901699  0.95105652  1.          0.95105652  0.80901699]
 #+end_example
+*** matplotlib basics <2018-09-08 Sat 17:11>
+- 清除、关闭图像 clf(), close(), close('all')
+#+begin_src python :results output
+from numpy import *
+from matplotlib.pyplot import *
+t = linspace(0, 2*pi, 50)
+x = sin(t)
+y = cos(t)
+figure()
+plot(x)
+figure()
+plot(y)
+#+end_src
+
+#+RESULTS:
+
+*** numpy array <2018-09-08 Sat 18:12>
+- 查看形状, np.shape(a)
+- 查看元素数目, np.size(a)
+- 查看数组维数, np.ndim(b)
+- 与列表不同，数组中要求所有元素的 dtype 是一样的，
+  如果传入参数的类型与数组类型不一样，需要按照已有的类型进行转换
+- 多维数组索引, a[1, 3], a[1]
+- 切片是引用, 因此，改变 b 会改变 a 的值。与列表(list)不同
+- np.arange 函数来产生等差数组
+- 花式索引需要指定索引位置, a[\[1, 2, -3\]]。还可以使用布尔数组来花式索引。
+  但是list不行。
+- 与切片不同，花式索引返回的是原对象的一个复制而不是引用
+- where 函数会返回所有非零元素的索引
+#+begin_src python :results output
+import numpy as np
+a = [i for i in range(10)]
+a.append('dog')
+aa = [i for i in range(10)]
+print(a)
+b = np.array(a)
+bb = np.array(aa)
+print(b.dtype, b.itemsize, b.shape, np.shape(a), np.ndim(a))
+c = np.arange(0, 10, 2)
+d = range(0, 10, 2)
+print(type(c), c > 3, b[[0, 3, 2]], np.where(c[c > 3]))
+print(type(d))
+#+end_src
+
+#+RESULTS:
+: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'dog']
+: <U21 84 (11,) (11,) 1
+: <class 'numpy.ndarray'> [False False  True  True  True] ['0' '3' '2'] (array([0, 1, 2]),)
+: <class 'range'>
