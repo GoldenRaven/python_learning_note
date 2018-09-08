@@ -916,6 +916,7 @@ print(plt.rcParams['axes.prop_cycle'].by_key()['color'])
 url: https://github.com/lijin-THU/notes-python/blob/master/02-python-essentials/02.21-file-IO.ipynb
 Control + RightClick
 ** numpy <2018-09-04 Tue 11:14>
+*** overview <2018-09-08 Sat>
 - numpy中array()方法与基本库中list有很大不同，注意不要混淆！！！
 - 修改array的形状,shape方法
 - 乘法仍然是对应元素的乘积，并不是按照矩阵乘法来计算
