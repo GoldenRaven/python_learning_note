@@ -1020,3 +1020,25 @@ print(type(d))
 : <U21 84 (11,) (11,) 1
 : <class 'numpy.ndarray'> [False False  True  True  True] ['0' '3' '2'] (array([0, 1, 2]),)
 : <class 'range'>
+*** array types <2018-09-09 Sun 15:47>
+- 复数数组
+- 复共轭 a.conj()
+#+begin_src python :results output
+import numpy as np
+a = np.array([1 + 1j, 2, 3, 4])
+print(a.real, a.imag, a.conj())
+#+end_src
+
+#+RESULTS:
+: [1. 2. 3. 4.] [1. 0. 0. 0.] [1.-1.j 2.-0.j 3.-0.j 4.-0.j]
+*** array calculation method <2018-09-09 Sun 16:57>
+- 求所有元素的和 sum(a)
+- 沿着第一维求和 sum(a, axis=0)
+- 沿着第二维求和 sum(a, axis=1)
+- 求所有元素的乘积 prod(a), a.prod()
+- 全局最小 a.min()
+- 沿着某个轴的最小 a.min(axis=1)
+- 最大最小值的位置 a.argmin(), a.argmax()
+- 均值 a.mean(axis=1)
+- 加权平均 a.average(axis=1), a.average(axis=0, weights=[1,2])
+*** numpy sorting <2018-09-09 Sun>
