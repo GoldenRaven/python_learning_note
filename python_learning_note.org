@@ -1,4 +1,6 @@
-* 0. python support in org mode
+#+TITLE: python learning note
+#+AUTHOR: Li Gao-Yang
+* python support in org mode
 ** python code block
 #+begin_src python :results value
 return 2/3
@@ -39,7 +41,7 @@ return 'python-matplot-fig.png' # return filename to org-mode
 #+RESULTS:
 [[file:python-matplot-fig.png]]
 
-* 1. A primer on scientific programming with python
+* A primer on scientific programming with python
 ** using a program as a calculator
 #+begin_src python :results output
 print(5*0.6 - 0.5*9.81*0.6**2)
@@ -86,7 +88,7 @@ print('y(t) is\nthe position of\nour ball')
 : y(t) is
 : the position of
 : our ball
-* 2. Liaoxuefeng python3
+* Liaoxuefeng python3
 ** python 基础
 以#开头的语句是注释
 每一行都是一个语句
@@ -828,7 +830,7 @@ print(dir('dafdsa'))
 : <class 'list'>
 : ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
 
-* 3. Tensor flow 中文社区
+* Tensor flow 中文社区
 url:http://www.tensorfly.cn/tfdoc/get_started/introduction.html
 #+begin_src python :results output
 import tensorflow as tf
@@ -853,9 +855,9 @@ import tensorflow as tf
 在机器学习模型设计时必须有一个单独的测试数据集不用于训练
 而是用来评估这个模型的性能，从而更加容易把设计的模型推广
 到其他数据集上（泛化）。
-* 4. Google机器学习速成课程
+* Google机器学习速成课程
 url:https://developers.google.cn/machine-learning/crash-course/
-* 5. Python 命令笔记
+* Python 命令笔记
 ** <2018-05-21 Mon>
 os.listdir('.')
 'AbC'.lower()
@@ -879,7 +881,7 @@ d.pop('Jack')
 - generator
   - 生成器
   - generator function
-* 6. Plot scientific data using python
+* Plot scientific data using python
 ** 'Colors in the default prop_cycle
 #+begin_src python :results output
 import numpy as np
@@ -910,7 +912,7 @@ print(plt.rcParams['axes.prop_cycle'].by_key()['color'])
 
 #+RESULTS:
 : ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
-* 7. git@github.com:lijin-THU/notes-python.git
+* git@github.com:lijin-THU/notes-python.git
 ** 基础
 *** 文件读写 <2018-09-04 Tue>
 url: https://github.com/lijin-THU/notes-python/blob/master/02-python-essentials/02.21-file-IO.ipynb
@@ -919,7 +921,8 @@ Control + RightClick
 *** overview <2018-09-08 Sat>
 - numpy中array()方法与基本库中list有很大不同，注意不要混淆！！！
 - 修改array的形状,shape方法
-- 乘法仍然是对应元素的乘积，并不是按照矩阵乘法来计算
+- *乘法仍然是对应元素的乘积，并不是按照矩阵乘法来计算
+- 矩阵乘法为A.dot(b)
 - numpy.linspace(start_point, end_point, point_number)
 - 从数组中选择元素src_python{numpy.array(list)[\[False, Ture, False, True\]]}
 #+begin_src python :results output
@@ -1042,3 +1045,6 @@ print(a.real, a.imag, a.conj())
 - 均值 a.mean(axis=1)
 - 加权平均 a.average(axis=1), a.average(axis=0, weights=[1,2])
 *** numpy sorting <2018-09-09 Sun>
+** TODO [#C] interfacing with other languages <2018-10-03 Wed>
+   SCHEDULED: <2018-10-03 Wed 20:30>
+   - State "TODO"       from              [2018-10-03 Wed 20:15]
