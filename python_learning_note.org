@@ -28,7 +28,7 @@ Two plus two equals src_python{return(2+2)}
 ** plotting
 #+begin_src python :results file
 import matplotlib, numpy
-#matplotlib.use('Agg')
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 fig=plt.figure(figsize=(4,2))
 x=numpy.linspace(-15,15)
@@ -195,7 +195,12 @@ tuple和list非常类似，但是tuple一旦初始化就不能修改
 #+begin_src python :results output
 classmates = ('Michael', 'Bob', 'Tracy')
 t = (1,)
+print(classmates, len(t),t[-1])
 #+end_src
+
+#+RESULTS:
+: ('Michael', 'Bob', 'Tracy') 1 1
+
 *** Important 条件判断 <2018-05-04 Fri>
     - State "Important"  from ""           [2018-05-04 Fri 09:30]
 - if语句的完整形式
@@ -1048,3 +1053,16 @@ print(a.real, a.imag, a.conj())
 ** TODO [#C] interfacing with other languages <2018-10-03 Wed>
    SCHEDULED: <2018-10-03 Wed 20:30>
    - State "TODO"       from              [2018-10-03 Wed 20:15]
+* Coursera-ML-AndrewNg-Notes
+** <2019-03-30 六 01:00> 课时12 梯度下降
+- alpha是learning rate，可以是常数，不能太大或太小。
+- 应该同时更新Theta_0,Theta_1,...Theta_n
+- 事实证明线性回规的cost function都是弓形函数（凸函数，convex function），
+  只有一个全局最小，没有局部最小。
+- batch Gradient Descent: 每次更新时遍历所有training set.
+- 也可以不遍历所有training set.
+- Normal equation方法不适用于大量training set,梯度下降可以。
+* TensorFlow learning on Github
+** 疑问
+   - 变量的creation和initialization区别是什么？都在执行什么操作？
+     是否类似于C中的变量声明与定义？

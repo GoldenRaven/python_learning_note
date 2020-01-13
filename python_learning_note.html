@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-21 Sat 00:41 -->
+<!-- 2019-09-21 Sat 01:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>python learning note</title>
@@ -256,122 +256,127 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge0d5d82">1. python support in org mode</a>
+<li><a href="#org0400bde">1. python support in org mode</a>
 <ul>
-<li><a href="#org2c52792">1.1. python code block</a></li>
-<li><a href="#org42e9131">1.2. inline calling</a></li>
-<li><a href="#org3ae37b0">1.3. plotting</a></li>
+<li><a href="#org3a8ba8f">1.1. python code block</a></li>
+<li><a href="#org0408c8a">1.2. inline calling</a></li>
+<li><a href="#org97616ce">1.3. plotting</a></li>
 </ul>
 </li>
-<li><a href="#org382cbdb">2. A primer on scientific programming with python</a>
+<li><a href="#org60bba7b">2. A primer on scientific programming with python</a>
 <ul>
-<li><a href="#org3935763">2.1. using a program as a calculator</a></li>
-<li><a href="#orge58df2c">2.2. using variables</a></li>
-<li><a href="#orgc9017c1">2.3. <span class="todo Important">Important</span> print syntax</a></li>
+<li><a href="#org5535cd3">2.1. using a program as a calculator</a></li>
+<li><a href="#orgfc62909">2.2. using variables</a></li>
+<li><a href="#orga6fcfc6">2.3. <span class="todo Important">Important</span> print syntax</a></li>
 </ul>
 </li>
-<li><a href="#orgfda217d">3. Liaoxuefeng python3</a>
+<li><a href="#org41c72c1">3. Liaoxuefeng python3</a>
 <ul>
-<li><a href="#org3346e80">3.1. python 基础</a>
+<li><a href="#org0584fcd">3.1. python 基础</a>
 <ul>
-<li><a href="#org1db3960">3.1.1. 数据类型</a></li>
-<li><a href="#orgc922af9">3.1.2. <span class="todo Important">Important</span> 字符串与编码</a></li>
-<li><a href="#org86a0a84">3.1.3. list与tuple <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-03 Thu&gt;</span></span></a></li>
-<li><a href="#orgb9cbec1">3.1.4. <span class="todo Important">Important</span> 条件判断 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-04 Fri&gt;</span></span></a></li>
-<li><a href="#orgfe0ca8a">3.1.5. 循环 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-04 Fri&gt;</span></span></a></li>
-<li><a href="#orgd83b4ff">3.1.6. 使用dict <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span></a></li>
-<li><a href="#orgf173992">3.1.7. 使用set <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span></a></li>
+<li><a href="#org14ccc7a">3.1.1. 数据类型</a></li>
+<li><a href="#orgbc2b1ef">3.1.2. <span class="todo Important">Important</span> 字符串与编码</a></li>
+<li><a href="#orgdc5798c">3.1.3. list与tuple <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-03 Thu&gt;</span></span></a></li>
+<li><a href="#org4289f45">3.1.4. <span class="todo Important">Important</span> 条件判断 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-04 Fri&gt;</span></span></a></li>
+<li><a href="#orgbe0b2d4">3.1.5. 循环 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-04 Fri&gt;</span></span></a></li>
+<li><a href="#orgb6085ea">3.1.6. 使用dict <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span></a></li>
+<li><a href="#org8c069cf">3.1.7. 使用set <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orge945d20">3.2. 函数</a>
+<li><a href="#org08f6840">3.2. 函数</a>
 <ul>
-<li><a href="#orge92f84e">3.2.1. 调用函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></a></li>
-<li><a href="#org54fe4f6">3.2.2. 数据类型转换 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></a></li>
-<li><a href="#org2b02ef5">3.2.3. 定义函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></a></li>
-<li><a href="#org4662853">3.2.4. 函数的参数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></a></li>
-<li><a href="#org797d270">3.2.5. <span class="todo TODO">TODO</span> 递归函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></a></li>
+<li><a href="#orga8384a7">3.2.1. 调用函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></a></li>
+<li><a href="#orgf19ed24">3.2.2. 数据类型转换 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></a></li>
+<li><a href="#org110a1f2">3.2.3. 定义函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></a></li>
+<li><a href="#org561ab15">3.2.4. 函数的参数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></a></li>
+<li><a href="#org96c1e5f">3.2.5. <span class="todo TODO">TODO</span> 递归函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org60c341a">3.3. 高级特性</a>
+<li><a href="#orga74ae98">3.3. 高级特性</a>
 <ul>
-<li><a href="#org1cfd169">3.3.1. slice 切片 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></a></li>
-<li><a href="#org209906e">3.3.2. iteration 迭代 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-08 Tue&gt;</span></span></a></li>
-<li><a href="#orga7756a1">3.3.3. list comprehensions 列表生成式 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-21 Mon&gt;</span></span></a></li>
-<li><a href="#orga48370e">3.3.4. generator 生成器 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-24 Thu&gt;</span></span></a></li>
-<li><a href="#orge690cb4">3.3.5. Iterator 迭代器 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-25 Fri&gt;</span></span></a></li>
+<li><a href="#org8a02f60">3.3.1. slice 切片 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></a></li>
+<li><a href="#org51adb2d">3.3.2. iteration 迭代 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-08 Tue&gt;</span></span></a></li>
+<li><a href="#org05543f1">3.3.3. list comprehensions 列表生成式 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-21 Mon&gt;</span></span></a></li>
+<li><a href="#org853de37">3.3.4. generator 生成器 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-24 Thu&gt;</span></span></a></li>
+<li><a href="#org4e29efc">3.3.5. Iterator 迭代器 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-25 Fri&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org5615a9a">3.4. <span class="todo TODO">TODO</span> 函数式编程</a></li>
-<li><a href="#org79e0f86">3.5. module 模块<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-25 Fri&gt;</span></span></a>
+<li><a href="#org200f620">3.4. <span class="todo TODO">TODO</span> 函数式编程</a></li>
+<li><a href="#org8635e65">3.5. module 模块<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-25 Fri&gt;</span></span></a>
 <ul>
-<li><a href="#org230b954">3.5.1. 使用module <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-06 Wed&gt;</span></span></a></li>
-<li><a href="#orgeba063f">3.5.2. 作用域 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-06 Wed&gt;</span></span></a></li>
-<li><a href="#org0c06e59">3.5.3. 安装第三方模块 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-07 Thu&gt;</span></span></a></li>
-<li><a href="#org388fc85">3.5.4. 安装常用模块 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-07 Thu&gt;</span></span></a></li>
+<li><a href="#org9477d14">3.5.1. 使用module <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-06 Wed&gt;</span></span></a></li>
+<li><a href="#org3974a29">3.5.2. 作用域 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-06 Wed&gt;</span></span></a></li>
+<li><a href="#orgaec6f74">3.5.3. 安装第三方模块 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-07 Thu&gt;</span></span></a></li>
+<li><a href="#orge1ad83d">3.5.4. 安装常用模块 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-07 Thu&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org8a7175d">3.6. 面向对象编程 Object Oriented Programming</a>
+<li><a href="#org80578d9">3.6. 面向对象编程 Object Oriented Programming</a>
 <ul>
-<li><a href="#orge918f0b">3.6.1. 类与实例 Class Instance</a></li>
-<li><a href="#org64b2d9d">3.6.2. 访问限制 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-29 Fri&gt;</span></span></a></li>
-<li><a href="#org2d78bdc">3.6.3. 继承与多态 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-07-05 Thu&gt;</span></span></a></li>
-<li><a href="#orgca9e448">3.6.4. 获取对象信息 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-08-10 Fri&gt;</span></span></a></li>
+<li><a href="#org84ea296">3.6.1. 类与实例 Class Instance</a></li>
+<li><a href="#orgbc10184">3.6.2. 访问限制 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-29 Fri&gt;</span></span></a></li>
+<li><a href="#orgfc71363">3.6.3. 继承与多态 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-07-05 Thu&gt;</span></span></a></li>
+<li><a href="#org5b35e8a">3.6.4. 获取对象信息 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-08-10 Fri&gt;</span></span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org02197a7">4. Tensor flow 中文社区</a>
+<li><a href="#org14c27bb">4. Tensor flow 中文社区</a>
 <ul>
-<li><a href="#orgfd9bc04">4.1. 介绍</a>
+<li><a href="#org4194fb4">4.1. 介绍</a>
 <ul>
-<li><a href="#org1d3c60b">4.1.1. intro<sub>mnist</sub></a></li>
-<li><a href="#orgbc42a00">4.1.2. expert<sub>mnist</sub></a></li>
+<li><a href="#org47b12fb">4.1.1. intro<sub>mnist</sub></a></li>
+<li><a href="#orgb5f4db4">4.1.2. expert<sub>mnist</sub></a></li>
 </ul>
 </li>
-<li><a href="#org0f39c05">4.2. MNIST introduction</a></li>
+<li><a href="#org1b2f36d">4.2. MNIST introduction</a></li>
 </ul>
 </li>
-<li><a href="#org474a972">5. Google机器学习速成课程</a></li>
-<li><a href="#org1baa3c4">6. Python 命令笔记</a>
+<li><a href="#org750a20a">5. Google机器学习速成课程</a></li>
+<li><a href="#orgf78dfc0">6. Python 命令笔记</a>
 <ul>
-<li><a href="#org40dce76">6.1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-21 Mon&gt;</span></span></a></li>
-<li><a href="#orga582473">6.2. <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-24 Thu&gt;</span></span></a></li>
+<li><a href="#org88e52aa">6.1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-21 Mon&gt;</span></span></a></li>
+<li><a href="#orgf324171">6.2. <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-24 Thu&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org856140f">7. Plot scientific data using python</a>
+<li><a href="#org63efc29">7. Plot scientific data using python</a>
 <ul>
-<li><a href="#org5aa8ed0">7.1. 'Colors in the default prop<sub>cycle</sub></a></li>
+<li><a href="#org1531b82">7.1. 'Colors in the default prop<sub>cycle</sub></a></li>
 </ul>
 </li>
-<li><a href="#org7f2dbfa">8. git@github.com:lijin-THU/notes-python.git</a>
+<li><a href="#org39b5488">8. git@github.com:lijin-THU/notes-python.git</a>
 <ul>
-<li><a href="#orgba3b7c4">8.1. 基础</a>
+<li><a href="#orgf57f590">8.1. 基础</a>
 <ul>
-<li><a href="#orgdf0228d">8.1.1. 文件读写 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-04 Tue&gt;</span></span></a></li>
+<li><a href="#org767713d">8.1.1. 文件读写 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-04 Tue&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orge4efa7d">8.2. numpy <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-04 Tue 11:14&gt;</span></span></a>
+<li><a href="#orgbaa21ed">8.2. numpy <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-04 Tue 11:14&gt;</span></span></a>
 <ul>
-<li><a href="#orged35c00">8.2.1. overview <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat&gt;</span></span></a></li>
-<li><a href="#org9edcc60">8.2.2. matplotlib basics <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat 17:11&gt;</span></span></a></li>
-<li><a href="#org11188f0">8.2.3. numpy array <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat 18:12&gt;</span></span></a></li>
-<li><a href="#org91e9c23">8.2.4. array types <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun 15:47&gt;</span></span></a></li>
-<li><a href="#org7ad0221">8.2.5. array calculation method <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun 16:57&gt;</span></span></a></li>
-<li><a href="#orgc66070c">8.2.6. numpy sorting <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun&gt;</span></span></a></li>
+<li><a href="#org220b60b">8.2.1. overview <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat&gt;</span></span></a></li>
+<li><a href="#orgdd8acf4">8.2.2. matplotlib basics <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat 17:11&gt;</span></span></a></li>
+<li><a href="#org8269dbf">8.2.3. numpy array <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat 18:12&gt;</span></span></a></li>
+<li><a href="#org1f9624d">8.2.4. array types <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun 15:47&gt;</span></span></a></li>
+<li><a href="#orgc27f123">8.2.5. array calculation method <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun 16:57&gt;</span></span></a></li>
+<li><a href="#orgf1f7bc2">8.2.6. numpy sorting <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org54e28b1">8.3. <span class="todo TODO">TODO</span> interfacing with other languages <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-03 Wed&gt;</span></span></a></li>
+<li><a href="#org4a0796d">8.3. <span class="todo TODO">TODO</span> interfacing with other languages <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-03 Wed&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org46f96f9">9. Coursera-ML-AndrewNg-Notes</a>
+<ul>
+<li><a href="#orgd6fd97c">9.1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-03-30 Sat 01:00&gt; </span></span> 课时12 梯度下降</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge0d5d82" class="outline-2">
-<h2 id="orge0d5d82"><span class="section-number-2">1</span> python support in org mode</h2>
+<div id="outline-container-org0400bde" class="outline-2">
+<h2 id="org0400bde"><span class="section-number-2">1</span> python support in org mode</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org2c52792" class="outline-3">
-<h3 id="org2c52792"><span class="section-number-3">1.1</span> python code block</h3>
+<div id="outline-container-org3a8ba8f" class="outline-3">
+<h3 id="org3a8ba8f"><span class="section-number-3">1.1</span> python code block</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #f92672; font-weight: bold;">return</span> 2/3
@@ -390,16 +395,16 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org42e9131" class="outline-3">
-<h3 id="org42e9131"><span class="section-number-3">1.2</span> inline calling</h3>
+<div id="outline-container-org0408c8a" class="outline-3">
+<h3 id="org0408c8a"><span class="section-number-3">1.2</span> inline calling</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Two plus two equals <code>4</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org3ae37b0" class="outline-3">
-<h3 id="org3ae37b0"><span class="section-number-3">1.3</span> plotting</h3>
+<div id="outline-container-org97616ce" class="outline-3">
+<h3 id="org97616ce"><span class="section-number-3">1.3</span> plotting</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #f92672; font-weight: bold;">import</span> matplotlib, numpy
@@ -417,12 +422,12 @@ plt.savefig(<span style="color: #e6db74;">'python-matplot-fig.png'</span>)
 </div>
 </div>
 
-<div id="outline-container-org382cbdb" class="outline-2">
-<h2 id="org382cbdb"><span class="section-number-2">2</span> A primer on scientific programming with python</h2>
+<div id="outline-container-org60bba7b" class="outline-2">
+<h2 id="org60bba7b"><span class="section-number-2">2</span> A primer on scientific programming with python</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org3935763" class="outline-3">
-<h3 id="org3935763"><span class="section-number-3">2.1</span> using a program as a calculator</h3>
+<div id="outline-container-org5535cd3" class="outline-3">
+<h3 id="org5535cd3"><span class="section-number-3">2.1</span> using a program as a calculator</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #f92672; font-weight: bold;">print</span>(5*0.6 - 0.5*9.81*0.6**2)
@@ -430,8 +435,8 @@ plt.savefig(<span style="color: #e6db74;">'python-matplot-fig.png'</span>)
 </div>
 </div>
 </div>
-<div id="outline-container-orge58df2c" class="outline-3">
-<h3 id="orge58df2c"><span class="section-number-3">2.2</span> using variables</h3>
+<div id="outline-container-orgfc62909" class="outline-3">
+<h3 id="orgfc62909"><span class="section-number-3">2.2</span> using variables</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fd971f;">v0</span> = 5
@@ -443,8 +448,8 @@ plt.savefig(<span style="color: #e6db74;">'python-matplot-fig.png'</span>)
 </div>
 </div>
 </div>
-<div id="outline-container-orgc9017c1" class="outline-3">
-<h3 id="orgc9017c1"><span class="section-number-3">2.3</span> <span class="todo Important">Important</span> print syntax</h3>
+<div id="outline-container-orga6fcfc6" class="outline-3">
+<h3 id="orga6fcfc6"><span class="section-number-3">2.3</span> <span class="todo Important">Important</span> print syntax</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>State "Important"  from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-06 Sun 13:48]</span></span></li>
@@ -468,12 +473,12 @@ plt.savefig(<span style="color: #e6db74;">'python-matplot-fig.png'</span>)
 </div>
 </div>
 </div>
-<div id="outline-container-orgfda217d" class="outline-2">
-<h2 id="orgfda217d"><span class="section-number-2">3</span> Liaoxuefeng python3</h2>
+<div id="outline-container-org41c72c1" class="outline-2">
+<h2 id="org41c72c1"><span class="section-number-2">3</span> Liaoxuefeng python3</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org3346e80" class="outline-3">
-<h3 id="org3346e80"><span class="section-number-3">3.1</span> python 基础</h3>
+<div id="outline-container-org0584fcd" class="outline-3">
+<h3 id="org0584fcd"><span class="section-number-3">3.1</span> python 基础</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 以#开头的语句是注释
@@ -492,8 +497,8 @@ Python程序是大小写敏感的
 </pre>
 </div>
 </div>
-<div id="outline-container-org1db3960" class="outline-4">
-<h4 id="org1db3960"><span class="section-number-4">3.1.1</span> 数据类型</h4>
+<div id="outline-container-org14ccc7a" class="outline-4">
+<h4 id="org14ccc7a"><span class="section-number-4">3.1.1</span> 数据类型</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li>整数
@@ -529,8 +534,8 @@ Python可以处理任意大小的整数</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc922af9" class="outline-4">
-<h4 id="orgc922af9"><span class="section-number-4">3.1.2</span> <span class="todo Important">Important</span> 字符串与编码</h4>
+<div id="outline-container-orgbc2b1ef" class="outline-4">
+<h4 id="orgbc2b1ef"><span class="section-number-4">3.1.2</span> <span class="todo Important">Important</span> 字符串与编码</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <ul class="org-ul">
 <li>State "Important"  from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-03 Thu 10:49]</span></span></li>
@@ -560,12 +565,12 @@ Python可以处理任意大小的整数</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org86a0a84" class="outline-4">
-<h4 id="org86a0a84"><span class="section-number-4">3.1.3</span> list与tuple <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-03 Thu&gt;</span></span></h4>
+<div id="outline-container-orgdc5798c" class="outline-4">
+<h4 id="orgdc5798c"><span class="section-number-4">3.1.3</span> list与tuple <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-03 Thu&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-1-3">
 </div>
 <ol class="org-ol">
-<li><a id="orgb7eda32"></a>list<br />
+<li><a id="org865adff"></a>list<br />
 <div class="outline-text-5" id="text-3-1-3-1">
 <ul class="org-ul">
 <li>索引是从0开始</li>
@@ -586,7 +591,7 @@ classmates.append(<span style="color: #e6db74;">'Adam'</span>)
 </div>
 </div>
 </li>
-<li><a id="orgd0f453c"></a>tuple<br />
+<li><a id="org4005e90"></a>tuple<br />
 <div class="outline-text-5" id="text-3-1-3-2">
 <p>
 tuple和list非常类似，但是tuple一旦初始化就不能修改
@@ -600,8 +605,8 @@ tuple和list非常类似，但是tuple一旦初始化就不能修改
 </li>
 </ol>
 </div>
-<div id="outline-container-orgb9cbec1" class="outline-4">
-<h4 id="orgb9cbec1"><span class="section-number-4">3.1.4</span> <span class="todo Important">Important</span> 条件判断 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-04 Fri&gt;</span></span></h4>
+<div id="outline-container-org4289f45" class="outline-4">
+<h4 id="org4289f45"><span class="section-number-4">3.1.4</span> <span class="todo Important">Important</span> 条件判断 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-04 Fri&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-1-4">
 <ul class="org-ul">
 <li>State "Important"  from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-04 Fri 09:30]</span></span></li>
@@ -630,8 +635,8 @@ else:
 </p>
 </div>
 </div>
-<div id="outline-container-orgfe0ca8a" class="outline-4">
-<h4 id="orgfe0ca8a"><span class="section-number-4">3.1.5</span> 循环 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-04 Fri&gt;</span></span></h4>
+<div id="outline-container-orgbe0b2d4" class="outline-4">
+<h4 id="orgbe0b2d4"><span class="section-number-4">3.1.5</span> 循环 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-04 Fri&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-1-5">
 <ul class="org-ul">
 <li>for x in list:</li>
@@ -648,8 +653,8 @@ else:
 </div>
 </div>
 </div>
-<div id="outline-container-orgd83b4ff" class="outline-4">
-<h4 id="orgd83b4ff"><span class="section-number-4">3.1.6</span> 使用dict <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span></h4>
+<div id="outline-container-orgb6085ea" class="outline-4">
+<h4 id="orgb6085ea"><span class="section-number-4">3.1.6</span> 使用dict <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-1-6">
 <p>
 dict全称dictionary，在其他语言中也称为map，
@@ -693,8 +698,8 @@ dict全称dictionary，在其他语言中也称为map，
 </div>
 </div>
 </div>
-<div id="outline-container-orgf173992" class="outline-4">
-<h4 id="orgf173992"><span class="section-number-4">3.1.7</span> 使用set <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span></h4>
+<div id="outline-container-org8c069cf" class="outline-4">
+<h4 id="org8c069cf"><span class="section-number-4">3.1.7</span> 使用set <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-1-7">
 <ul class="org-ul">
 <li>set和dict类似，也是一组key的集合，但不存储value。
@@ -720,20 +725,20 @@ dict全称dictionary，在其他语言中也称为map，
 </div>
 </div>
 
-<div id="outline-container-orge945d20" class="outline-3">
-<h3 id="orge945d20"><span class="section-number-3">3.2</span> 函数</h3>
+<div id="outline-container-org08f6840" class="outline-3">
+<h3 id="org08f6840"><span class="section-number-3">3.2</span> 函数</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-orge92f84e" class="outline-4">
-<h4 id="orge92f84e"><span class="section-number-4">3.2.1</span> 调用函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></h4>
+<div id="outline-container-orga8384a7" class="outline-4">
+<h4 id="orga8384a7"><span class="section-number-4">3.2.1</span> 调用函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-2-1">
 <ul class="org-ul">
 <li>可以在交互式命令行通过help(abs)查看abs函数的帮助信息</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org54fe4f6" class="outline-4">
-<h4 id="org54fe4f6"><span class="section-number-4">3.2.2</span> 数据类型转换 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></h4>
+<div id="outline-container-orgf19ed24" class="outline-4">
+<h4 id="orgf19ed24"><span class="section-number-4">3.2.2</span> 数据类型转换 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-2-2">
 <ul class="org-ul">
 <li>int('123')</li>
@@ -756,8 +761,8 @@ dict全称dictionary，在其他语言中也称为map，
 </div>
 </div>
 </div>
-<div id="outline-container-org2b02ef5" class="outline-4">
-<h4 id="org2b02ef5"><span class="section-number-4">3.2.3</span> 定义函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></h4>
+<div id="outline-container-org110a1f2" class="outline-4">
+<h4 id="org110a1f2"><span class="section-number-4">3.2.3</span> 定义函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-06 Sun&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-2-3">
 <ul class="org-ul">
 <li>定义一个函数要使用def语句，依次写出函数名、括号、
@@ -784,8 +789,8 @@ dict全称dictionary，在其他语言中也称为map，
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="org061b6a7"></a>空函数<br /></li>
-<li><a id="org29b410d"></a>参数检查<br />
+<li><a id="org207be64"></a>空函数<br /></li>
+<li><a id="org82da901"></a>参数检查<br />
 <div class="outline-text-5" id="text-3-2-3-2">
 <p>
 数据类型检查可以用内置函数isinstance()实现。
@@ -803,7 +808,7 @@ my_abs(<span style="color: #e6db74;">'A'</span>)
 </div>
 </div>
 </li>
-<li><a id="org09726f4"></a>返回多个值<br />
+<li><a id="org67256b9"></a>返回多个值<br />
 <div class="outline-text-5" id="text-3-2-3-3">
 <p>
 Python的函数返回多值其实就是返回一个tuple，但写起来更方便
@@ -813,8 +818,8 @@ return nx, ny
 </li>
 </ol>
 </div>
-<div id="outline-container-org4662853" class="outline-4">
-<h4 id="org4662853"><span class="section-number-4">3.2.4</span> 函数的参数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></h4>
+<div id="outline-container-org561ab15" class="outline-4">
+<h4 id="org561ab15"><span class="section-number-4">3.2.4</span> 函数的参数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-2-4">
 <ul class="org-ul">
 <li>位置参数 power(x), power(x, n), 调用函数时，
@@ -853,35 +858,35 @@ city参数由于没有提供，仍然使用默认值。</li>
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="org6057113"></a><span class="todo TODO">TODO</span> 可变参数<br />
+<li><a id="org84fd8b3"></a><span class="todo TODO">TODO</span> 可变参数<br />
 <div class="outline-text-5" id="text-3-2-4-1">
 <ul class="org-ul">
 <li>State "TODO"       from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-07 Mon 19:18]</span></span></li>
 </ul>
 </div>
 </li>
-<li><a id="org54ec05e"></a><span class="todo TODO">TODO</span> 关键字参数<br />
+<li><a id="org79c7f5c"></a><span class="todo TODO">TODO</span> 关键字参数<br />
 <div class="outline-text-5" id="text-3-2-4-2">
 <ul class="org-ul">
 <li>State "TODO"       from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-07 Mon 19:19]</span></span></li>
 </ul>
 </div>
 </li>
-<li><a id="org8d91f05"></a><span class="todo TODO">TODO</span> 命名关键字参数<br />
+<li><a id="org6b4b75d"></a><span class="todo TODO">TODO</span> 命名关键字参数<br />
 <div class="outline-text-5" id="text-3-2-4-3">
 <ul class="org-ul">
 <li>State "TODO"       from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-07 Mon 19:20]</span></span></li>
 </ul>
 </div>
 </li>
-<li><a id="org32e8ec0"></a><span class="todo TODO">TODO</span> 参数组合<br />
+<li><a id="org6e16e23"></a><span class="todo TODO">TODO</span> 参数组合<br />
 <div class="outline-text-5" id="text-3-2-4-4">
 <ul class="org-ul">
 <li>State "TODO"       from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-07 Mon 19:20]</span></span></li>
 </ul>
 </div>
 </li>
-<li><a id="org138eade"></a><span class="todo TODO">TODO</span> 小结<br />
+<li><a id="org2e6b42f"></a><span class="todo TODO">TODO</span> 小结<br />
 <div class="outline-text-5" id="text-3-2-4-5">
 <ul class="org-ul">
 <li>State "TODO"       from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-07 Mon 19:20]</span></span></li>
@@ -890,8 +895,8 @@ city参数由于没有提供，仍然使用默认值。</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org797d270" class="outline-4">
-<h4 id="org797d270"><span class="section-number-4">3.2.5</span> <span class="todo TODO">TODO</span> 递归函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></h4>
+<div id="outline-container-org96c1e5f" class="outline-4">
+<h4 id="org96c1e5f"><span class="section-number-4">3.2.5</span> <span class="todo TODO">TODO</span> 递归函数 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-2-5">
 <ul class="org-ul">
 <li>State "TODO"       from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-07 Mon 19:24]</span></span></li>
@@ -899,16 +904,16 @@ city参数由于没有提供，仍然使用默认值。</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org60c341a" class="outline-3">
-<h3 id="org60c341a"><span class="section-number-3">3.3</span> 高级特性</h3>
+<div id="outline-container-orga74ae98" class="outline-3">
+<h3 id="orga74ae98"><span class="section-number-3">3.3</span> 高级特性</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 在Python中，代码不是越多越好，而是越少越好。
 代码不是越复杂越好，而是越简单越好。
 </p>
 </div>
-<div id="outline-container-org1cfd169" class="outline-4">
-<h4 id="org1cfd169"><span class="section-number-4">3.3.1</span> slice 切片 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></h4>
+<div id="outline-container-org8a02f60" class="outline-4">
+<h4 id="org8a02f60"><span class="section-number-4">3.3.1</span> slice 切片 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-07 Mon&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
@@ -953,8 +958,8 @@ L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 </div>
 </div>
 </div>
-<div id="outline-container-org209906e" class="outline-4">
-<h4 id="org209906e"><span class="section-number-4">3.3.2</span> iteration 迭代 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-08 Tue&gt;</span></span></h4>
+<div id="outline-container-org51adb2d" class="outline-4">
+<h4 id="org51adb2d"><span class="section-number-4">3.3.2</span> iteration 迭代 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-08 Tue&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-3-2">
 <ul class="org-ul">
 <li>如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，
@@ -990,8 +995,8 @@ L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 </div>
 </div>
 
-<div id="outline-container-orga7756a1" class="outline-4">
-<h4 id="orga7756a1"><span class="section-number-4">3.3.3</span> list comprehensions 列表生成式 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-21 Mon&gt;</span></span></h4>
+<div id="outline-container-org05543f1" class="outline-4">
+<h4 id="org05543f1"><span class="section-number-4">3.3.3</span> list comprehensions 列表生成式 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-21 Mon&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 列表生成式则可以用一行语句代替循环生成上面的list
@@ -1013,8 +1018,8 @@ L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 </div>
 </div>
 
-<div id="outline-container-orga48370e" class="outline-4">
-<h4 id="orga48370e"><span class="section-number-4">3.3.4</span> generator 生成器 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-24 Thu&gt;</span></span></h4>
+<div id="outline-container-org853de37" class="outline-4">
+<h4 id="org853de37"><span class="section-number-4">3.3.4</span> generator 生成器 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-24 Thu&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-3-4">
 <p>
 受到内存限制，列表容量肯定是有限的,
@@ -1111,8 +1116,8 @@ L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 </div>
 </div>
 
-<div id="outline-container-orge690cb4" class="outline-4">
-<h4 id="orge690cb4"><span class="section-number-4">3.3.5</span> Iterator 迭代器 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-25 Fri&gt;</span></span></h4>
+<div id="outline-container-org4e29efc" class="outline-4">
+<h4 id="org4e29efc"><span class="section-number-4">3.3.5</span> Iterator 迭代器 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-25 Fri&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-3-5">
 <p>
 可以使用isinstance()判断一个对象是否是Iterable
@@ -1141,16 +1146,16 @@ Iterator的计算是惰性的，只有在需要返回下一个数据时它才会
 </div>
 </div>
 </div>
-<div id="outline-container-org5615a9a" class="outline-3">
-<h3 id="org5615a9a"><span class="section-number-3">3.4</span> <span class="todo TODO">TODO</span> 函数式编程</h3>
+<div id="outline-container-org200f620" class="outline-3">
+<h3 id="org200f620"><span class="section-number-3">3.4</span> <span class="todo TODO">TODO</span> 函数式编程</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>State "TODO"       from ""           <span class="timestamp-wrapper"><span class="timestamp">[2018-05-25 Fri 16:52]</span></span></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org79e0f86" class="outline-3">
-<h3 id="org79e0f86"><span class="section-number-3">3.5</span> module 模块<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-25 Fri&gt;</span></span></h3>
+<div id="outline-container-org8635e65" class="outline-3">
+<h3 id="org8635e65"><span class="section-number-3">3.5</span> module 模块<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-25 Fri&gt;</span></span></h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 为了避免模块名冲突，Python引入了按目录来组织模块的方法，
@@ -1169,8 +1174,8 @@ Iterator的计算是惰性的，只有在需要返回下一个数据时它才会
 检查方法是在Python交互环境执行import abc，若成功则说明系统存在此模块</li>
 </ul>
 </div>
-<div id="outline-container-org230b954" class="outline-4">
-<h4 id="org230b954"><span class="section-number-4">3.5.1</span> 使用module <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-06 Wed&gt;</span></span></h4>
+<div id="outline-container-org9477d14" class="outline-4">
+<h4 id="org9477d14"><span class="section-number-4">3.5.1</span> 使用module <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-06 Wed&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-5-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #465457;">#</span><span style="color: #465457;">!/usr/bin/env python3</span>
@@ -1206,8 +1211,8 @@ Iterator的计算是惰性的，只有在需要返回下一个数据时它才会
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeba063f" class="outline-4">
-<h4 id="orgeba063f"><span class="section-number-4">3.5.2</span> 作用域 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-06 Wed&gt;</span></span></h4>
+<div id="outline-container-org3974a29" class="outline-4">
+<h4 id="org3974a29"><span class="section-number-4">3.5.2</span> 作用域 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-06 Wed&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-5-2">
 <ul class="org-ul">
 <li>有的函数和变量我们希望仅仅在模块内部使用</li>
@@ -1238,16 +1243,16 @@ Iterator的计算是惰性的，只有在需要返回下一个数据时它才会
 </ul>
 </div>
 </div>
-<div id="outline-container-org0c06e59" class="outline-4">
-<h4 id="org0c06e59"><span class="section-number-4">3.5.3</span> 安装第三方模块 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-07 Thu&gt;</span></span></h4>
+<div id="outline-container-orgaec6f74" class="outline-4">
+<h4 id="orgaec6f74"><span class="section-number-4">3.5.3</span> 安装第三方模块 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-07 Thu&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-5-3">
 <p>
 pip install pillow
 </p>
 </div>
 </div>
-<div id="outline-container-org388fc85" class="outline-4">
-<h4 id="org388fc85"><span class="section-number-4">3.5.4</span> 安装常用模块 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-07 Thu&gt;</span></span></h4>
+<div id="outline-container-orge1ad83d" class="outline-4">
+<h4 id="orge1ad83d"><span class="section-number-4">3.5.4</span> 安装常用模块 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-07 Thu&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-5-4">
 <ul class="org-ul">
 <li>anaconda (狂蟒之灾电影）</li>
@@ -1262,8 +1267,8 @@ pip install pillow
 </div>
 </div>
 </div>
-<div id="outline-container-org8a7175d" class="outline-3">
-<h3 id="org8a7175d"><span class="section-number-3">3.6</span> 面向对象编程 Object Oriented Programming</h3>
+<div id="outline-container-org80578d9" class="outline-3">
+<h3 id="org80578d9"><span class="section-number-3">3.6</span> 面向对象编程 Object Oriented Programming</h3>
 <div class="outline-text-3" id="text-3-6">
 <ul class="org-ul">
 <li>OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数.</li>
@@ -1272,8 +1277,8 @@ pip install pillow
 <li>数据封装、继承和多态是面向对象的三大特点</li>
 </ul>
 </div>
-<div id="outline-container-orge918f0b" class="outline-4">
-<h4 id="orge918f0b"><span class="section-number-4">3.6.1</span> 类与实例 Class Instance</h4>
+<div id="outline-container-org84ea296" class="outline-4">
+<h4 id="org84ea296"><span class="section-number-4">3.6.1</span> 类与实例 Class Instance</h4>
 <div class="outline-text-4" id="text-3-6-1">
 <ul class="org-ul">
 <li>类名通常是大写开头的单词</li>
@@ -1317,8 +1322,8 @@ mark.print_score()
 </div>
 </div>
 </div>
-<div id="outline-container-org64b2d9d" class="outline-4">
-<h4 id="org64b2d9d"><span class="section-number-4">3.6.2</span> 访问限制 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-29 Fri&gt;</span></span></h4>
+<div id="outline-container-orgbc10184" class="outline-4">
+<h4 id="orgbc10184"><span class="section-number-4">3.6.2</span> 访问限制 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-06-29 Fri&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-6-2">
 <ul class="org-ul">
 <li>外部代码还是可以自由地修改一个实例的name、score属性</li>
@@ -1358,8 +1363,8 @@ mark.print_score()
 </div>
 </div>
 
-<div id="outline-container-org2d78bdc" class="outline-4">
-<h4 id="org2d78bdc"><span class="section-number-4">3.6.3</span> 继承与多态 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-07-05 Thu&gt;</span></span></h4>
+<div id="outline-container-orgfc71363" class="outline-4">
+<h4 id="orgfc71363"><span class="section-number-4">3.6.3</span> 继承与多态 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-07-05 Thu&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-6-3">
 <ul class="org-ul">
 <li>继承最大的好处是子类获得了父类的全部功能</li>
@@ -1409,8 +1414,8 @@ dog1.run()
 </div>
 </div>
 
-<div id="outline-container-orgca9e448" class="outline-4">
-<h4 id="orgca9e448"><span class="section-number-4">3.6.4</span> 获取对象信息 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-08-10 Fri&gt;</span></span></h4>
+<div id="outline-container-org5b35e8a" class="outline-4">
+<h4 id="org5b35e8a"><span class="section-number-4">3.6.4</span> 获取对象信息 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-08-10 Fri&gt;</span></span></h4>
 <div class="outline-text-4" id="text-3-6-4">
 <ul class="org-ul">
 <li>使用type()函数来判断对象类型</li>
@@ -1437,8 +1442,8 @@ dog1.run()
 </div>
 </div>
 
-<div id="outline-container-org02197a7" class="outline-2">
-<h2 id="org02197a7"><span class="section-number-2">4</span> Tensor flow 中文社区</h2>
+<div id="outline-container-org14c27bb" class="outline-2">
+<h2 id="org14c27bb"><span class="section-number-2">4</span> Tensor flow 中文社区</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 url:<a href="http://www.tensorfly.cn/tfdoc/get_started/introduction.html">http://www.tensorfly.cn/tfdoc/get_started/introduction.html</a>
@@ -1448,16 +1453,16 @@ url:<a href="http://www.tensorfly.cn/tfdoc/get_started/introduction.html">http:/
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfd9bc04" class="outline-3">
-<h3 id="orgfd9bc04"><span class="section-number-3">4.1</span> 介绍</h3>
+<div id="outline-container-org4194fb4" class="outline-3">
+<h3 id="org4194fb4"><span class="section-number-3">4.1</span> 介绍</h3>
 <div class="outline-text-3" id="text-4-1">
 </div>
-<div id="outline-container-org1d3c60b" class="outline-4">
-<h4 id="org1d3c60b"><span class="section-number-4">4.1.1</span> intro<sub>mnist</sub></h4>
+<div id="outline-container-org47b12fb" class="outline-4">
+<h4 id="org47b12fb"><span class="section-number-4">4.1.1</span> intro<sub>mnist</sub></h4>
 <div class="outline-text-4" id="text-4-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="org4a523b4"></a>mnist 数据集 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span><br />
+<li><a id="orgec8ba8c"></a>mnist 数据集 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-05 Sat&gt;</span></span><br />
 <div class="outline-text-5" id="text-4-1-1-1">
 <ul class="org-ul">
 <li>mnist.train.images [6000, 28*28]
@@ -1467,7 +1472,7 @@ url:<a href="http://www.tensorfly.cn/tfdoc/get_started/introduction.html">http:/
 </ul>
 </div>
 </li>
-<li><a id="org4277a0d"></a>softmax regression 介绍<br />
+<li><a id="orgaa23312"></a>softmax regression 介绍<br />
 <div class="outline-text-5" id="text-4-1-1-2">
 <ul class="org-ul">
 <li>softmax模型可以用来给不同的对象分配概率。即使在之后，我们训练更加精细的模型时，
@@ -1482,12 +1487,12 @@ url:<a href="http://www.tensorfly.cn/tfdoc/get_started/introduction.html">http:/
 </li>
 </ol>
 </div>
-<div id="outline-container-orgbc42a00" class="outline-4">
-<h4 id="orgbc42a00"><span class="section-number-4">4.1.2</span> expert<sub>mnist</sub></h4>
+<div id="outline-container-orgb5f4db4" class="outline-4">
+<h4 id="orgb5f4db4"><span class="section-number-4">4.1.2</span> expert<sub>mnist</sub></h4>
 </div>
 </div>
-<div id="outline-container-org0f39c05" class="outline-3">
-<h3 id="org0f39c05"><span class="section-number-3">4.2</span> MNIST introduction</h3>
+<div id="outline-container-org1b2f36d" class="outline-3">
+<h3 id="org1b2f36d"><span class="section-number-3">4.2</span> MNIST introduction</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 在机器学习模型设计时必须有一个单独的测试数据集不用于训练
@@ -1497,20 +1502,20 @@ url:<a href="http://www.tensorfly.cn/tfdoc/get_started/introduction.html">http:/
 </div>
 </div>
 </div>
-<div id="outline-container-org474a972" class="outline-2">
-<h2 id="org474a972"><span class="section-number-2">5</span> Google机器学习速成课程</h2>
+<div id="outline-container-org750a20a" class="outline-2">
+<h2 id="org750a20a"><span class="section-number-2">5</span> Google机器学习速成课程</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 url:<a href="https://developers.google.cn/machine-learning/crash-course/">https://developers.google.cn/machine-learning/crash-course/</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org1baa3c4" class="outline-2">
-<h2 id="org1baa3c4"><span class="section-number-2">6</span> Python 命令笔记</h2>
+<div id="outline-container-orgf78dfc0" class="outline-2">
+<h2 id="orgf78dfc0"><span class="section-number-2">6</span> Python 命令笔记</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org40dce76" class="outline-3">
-<h3 id="org40dce76"><span class="section-number-3">6.1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-21 Mon&gt;</span></span></h3>
+<div id="outline-container-org88e52aa" class="outline-3">
+<h3 id="org88e52aa"><span class="section-number-3">6.1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-21 Mon&gt;</span></span></h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 os.listdir('.')
@@ -1527,8 +1532,8 @@ d.pop('Jack')
 </p>
 </div>
 </div>
-<div id="outline-container-orga582473" class="outline-3">
-<h3 id="orga582473"><span class="section-number-3">6.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-24 Thu&gt;</span></span></h3>
+<div id="outline-container-orgf324171" class="outline-3">
+<h3 id="orgf324171"><span class="section-number-3">6.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-24 Thu&gt;</span></span></h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 可迭代对象：
@@ -1549,12 +1554,12 @@ d.pop('Jack')
 </div>
 </div>
 </div>
-<div id="outline-container-org856140f" class="outline-2">
-<h2 id="org856140f"><span class="section-number-2">7</span> Plot scientific data using python</h2>
+<div id="outline-container-org63efc29" class="outline-2">
+<h2 id="org63efc29"><span class="section-number-2">7</span> Plot scientific data using python</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org5aa8ed0" class="outline-3">
-<h3 id="org5aa8ed0"><span class="section-number-3">7.1</span> 'Colors in the default prop<sub>cycle</sub></h3>
+<div id="outline-container-org1531b82" class="outline-3">
+<h3 id="org1531b82"><span class="section-number-3">7.1</span> 'Colors in the default prop<sub>cycle</sub></h3>
 <div class="outline-text-3" id="text-7-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #f92672; font-weight: bold;">import</span> numpy <span style="color: #f92672; font-weight: bold;">as</span> np
@@ -1586,16 +1591,16 @@ plt.savefig(<span style="color: #e6db74;">"Colors_in_the_default_prop_cycle.eps"
 </div>
 </div>
 </div>
-<div id="outline-container-org7f2dbfa" class="outline-2">
-<h2 id="org7f2dbfa"><span class="section-number-2">8</span> git@github.com:lijin-THU/notes-python.git</h2>
+<div id="outline-container-org39b5488" class="outline-2">
+<h2 id="org39b5488"><span class="section-number-2">8</span> git@github.com:lijin-THU/notes-python.git</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-orgba3b7c4" class="outline-3">
-<h3 id="orgba3b7c4"><span class="section-number-3">8.1</span> 基础</h3>
+<div id="outline-container-orgf57f590" class="outline-3">
+<h3 id="orgf57f590"><span class="section-number-3">8.1</span> 基础</h3>
 <div class="outline-text-3" id="text-8-1">
 </div>
-<div id="outline-container-orgdf0228d" class="outline-4">
-<h4 id="orgdf0228d"><span class="section-number-4">8.1.1</span> 文件读写 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-04 Tue&gt;</span></span></h4>
+<div id="outline-container-org767713d" class="outline-4">
+<h4 id="org767713d"><span class="section-number-4">8.1.1</span> 文件读写 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-04 Tue&gt;</span></span></h4>
 <div class="outline-text-4" id="text-8-1-1">
 <p>
 url: <a href="https://github.com/lijin-THU/notes-python/blob/master/02-python-essentials/02.21-file-IO.ipynb">https://github.com/lijin-THU/notes-python/blob/master/02-python-essentials/02.21-file-IO.ipynb</a>
@@ -1604,12 +1609,12 @@ Control + RightClick
 </div>
 </div>
 </div>
-<div id="outline-container-orge4efa7d" class="outline-3">
-<h3 id="orge4efa7d"><span class="section-number-3">8.2</span> numpy <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-04 Tue 11:14&gt;</span></span></h3>
+<div id="outline-container-orgbaa21ed" class="outline-3">
+<h3 id="orgbaa21ed"><span class="section-number-3">8.2</span> numpy <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-04 Tue 11:14&gt;</span></span></h3>
 <div class="outline-text-3" id="text-8-2">
 </div>
-<div id="outline-container-orged35c00" class="outline-4">
-<h4 id="orged35c00"><span class="section-number-4">8.2.1</span> overview <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat&gt;</span></span></h4>
+<div id="outline-container-org220b60b" class="outline-4">
+<h4 id="org220b60b"><span class="section-number-4">8.2.1</span> overview <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat&gt;</span></span></h4>
 <div class="outline-text-4" id="text-8-2-1">
 <ul class="org-ul">
 <li>numpy中array()方法与基本库中list有很大不同，注意不要混淆！！！</li>
@@ -1644,8 +1649,8 @@ Control + RightClick
 </div>
 </div>
 </div>
-<div id="outline-container-org9edcc60" class="outline-4">
-<h4 id="org9edcc60"><span class="section-number-4">8.2.2</span> matplotlib basics <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat 17:11&gt;</span></span></h4>
+<div id="outline-container-orgdd8acf4" class="outline-4">
+<h4 id="orgdd8acf4"><span class="section-number-4">8.2.2</span> matplotlib basics <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat 17:11&gt;</span></span></h4>
 <div class="outline-text-4" id="text-8-2-2">
 <ul class="org-ul">
 <li>清除、关闭图像 clf(), close(), close('all')</li>
@@ -1665,8 +1670,8 @@ plot(y)
 </div>
 </div>
 
-<div id="outline-container-org11188f0" class="outline-4">
-<h4 id="org11188f0"><span class="section-number-4">8.2.3</span> numpy array <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat 18:12&gt;</span></span></h4>
+<div id="outline-container-org8269dbf" class="outline-4">
+<h4 id="org8269dbf"><span class="section-number-4">8.2.3</span> numpy array <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-08 Sat 18:12&gt;</span></span></h4>
 <div class="outline-text-4" id="text-8-2-3">
 <ul class="org-ul">
 <li>查看形状, np.shape(a)</li>
@@ -1699,8 +1704,8 @@ a.append(<span style="color: #e6db74;">'dog'</span>)
 </div>
 </div>
 </div>
-<div id="outline-container-org91e9c23" class="outline-4">
-<h4 id="org91e9c23"><span class="section-number-4">8.2.4</span> array types <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun 15:47&gt;</span></span></h4>
+<div id="outline-container-org1f9624d" class="outline-4">
+<h4 id="org1f9624d"><span class="section-number-4">8.2.4</span> array types <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun 15:47&gt;</span></span></h4>
 <div class="outline-text-4" id="text-8-2-4">
 <ul class="org-ul">
 <li>复数数组</li>
@@ -1714,8 +1719,8 @@ a.append(<span style="color: #e6db74;">'dog'</span>)
 </div>
 </div>
 </div>
-<div id="outline-container-org7ad0221" class="outline-4">
-<h4 id="org7ad0221"><span class="section-number-4">8.2.5</span> array calculation method <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun 16:57&gt;</span></span></h4>
+<div id="outline-container-orgc27f123" class="outline-4">
+<h4 id="orgc27f123"><span class="section-number-4">8.2.5</span> array calculation method <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun 16:57&gt;</span></span></h4>
 <div class="outline-text-4" id="text-8-2-5">
 <ul class="org-ul">
 <li>求所有元素的和 sum(a)</li>
@@ -1730,12 +1735,12 @@ a.append(<span style="color: #e6db74;">'dog'</span>)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc66070c" class="outline-4">
-<h4 id="orgc66070c"><span class="section-number-4">8.2.6</span> numpy sorting <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun&gt;</span></span></h4>
+<div id="outline-container-orgf1f7bc2" class="outline-4">
+<h4 id="orgf1f7bc2"><span class="section-number-4">8.2.6</span> numpy sorting <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun&gt;</span></span></h4>
 </div>
 </div>
-<div id="outline-container-org54e28b1" class="outline-3">
-<h3 id="org54e28b1"><span class="section-number-3">8.3</span> <span class="todo TODO">TODO</span> interfacing with other languages <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-03 Wed&gt;</span></span></h3>
+<div id="outline-container-org4a0796d" class="outline-3">
+<h3 id="org4a0796d"><span class="section-number-3">8.3</span> <span class="todo TODO">TODO</span> interfacing with other languages <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-03 Wed&gt;</span></span></h3>
 <div class="outline-text-3" id="text-8-3">
 <ul class="org-ul">
 <li>State "TODO"       from              <span class="timestamp-wrapper"><span class="timestamp">[2018-10-03 Wed 20:15]</span></span></li>
@@ -1743,10 +1748,29 @@ a.append(<span style="color: #e6db74;">'dog'</span>)
 </div>
 </div>
 </div>
+<div id="outline-container-org46f96f9" class="outline-2">
+<h2 id="org46f96f9"><span class="section-number-2">9</span> Coursera-ML-AndrewNg-Notes</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-orgd6fd97c" class="outline-3">
+<h3 id="orgd6fd97c"><span class="section-number-3">9.1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-03-30 Sat 01:00&gt; </span></span> 课时12 梯度下降</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li>alpha是learning rate，可以是常数，不能太大或太小。</li>
+<li>应该同时更新Theta<sub>0,Theta</sub><sub>1,&#x2026;Theta</sub><sub>n</sub></li>
+<li>事实证明线性回规的cost function都是弓形函数（凸函数，convex function），
+只有一个全局最小，没有局部最小。</li>
+<li>batch Gradient Descent: 每次更新时遍历所有training set.</li>
+<li>也可以不遍历所有training set.</li>
+<li>Normal equation方法不适用于大量training set,梯度下降可以。</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Li Gao-Yang</p>
-<p class="date">Created: 2019-09-21 Sat 00:41</p>
+<p class="date">Created: 2019-09-21 Sat 01:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

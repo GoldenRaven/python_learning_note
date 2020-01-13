@@ -1,0 +1,1129 @@
+% Created 2019-09-21 Sat 01:07
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Li Gao-Yang}
+\date{\today}
+\title{python learning note}
+\hypersetup{
+ pdfauthor={Li Gao-Yang},
+ pdftitle={python learning note},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.1.9)},
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{python support in org mode}
+\label{sec:orgf1ebe3f}
+\subsection{python code block}
+\label{sec:org0e220ff}
+\begin{verbatim}
+return 2/3
+\end{verbatim}
+
+\begin{verbatim}
+print(2/3)
+\end{verbatim}
+
+\begin{verbatim}
+print(2/3)
+\end{verbatim}
+
+\subsection{inline calling}
+\label{sec:org706d256}
+Two plus two equals \texttt{4}
+\subsection{plotting}
+\label{sec:org9421ce3}
+\begin{verbatim}
+import matplotlib, numpy
+#matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=numpy.linspace(-15,15)
+plt.plot(numpy.sin(x)/x)
+fig.tight_layout()
+plt.savefig('python-matplot-fig.png')
+return 'python-matplot-fig.png' # return filename to org-mode
+\end{verbatim}
+
+\section{A primer on scientific programming with python}
+\label{sec:orgd2fc477}
+\subsection{using a program as a calculator}
+\label{sec:org724ffad}
+\begin{verbatim}
+print(5*0.6 - 0.5*9.81*0.6**2)
+\end{verbatim}
+\subsection{using variables}
+\label{sec:orgd8edf9d}
+\begin{verbatim}
+v0 = 5
+g = 9.81
+t = 0.6
+y = v0*t - 0.5*g*t**2
+print(y)
+\end{verbatim}
+\subsection{{\bfseries\sffamily Important} print syntax}
+\label{sec:orgbd7980c}
+\begin{itemize}
+\item State "Important"  from ""           \textit{[2018-05-06 Sun 13:48]}
+\end{itemize}
+\begin{verbatim}
+v0 = 5
+g = 9.81
+t = 0.6
+y = v0*t - 0.5*g*t**2
+print('At t=%g s, the height of the ball is %.2f m.' % (t,y))
+\end{verbatim}
+\begin{verbatim}
+print("""y(t) is
+the position of
+our ball.""")
+print()
+print('y(t) is\nthe position of\nour ball')
+\end{verbatim}
+\section{Liaoxuefeng python3}
+\label{sec:orgd73449a}
+\subsection{python 基础}
+\label{sec:org66aaee2}
+以\#开头的语句是注释
+每一行都是一个语句
+当语句以冒号:结尾时，缩进的语句视为代码块。
+应该始终坚持使用4个空格的缩进。
+Python程序是大小写敏感的
+
+\begin{verbatim}
+a = 100
+if a >= 0:
+    print(a)
+else:
+    print(-a)
+\end{verbatim}
+\subsubsection{数据类型}
+\label{sec:orgdb0935a}
+\begin{itemize}
+\item 整数
+Python可以处理任意大小的整数
+\item 浮点数
+\item 字符串
+\begin{itemize}
+\item 字符串是以单引号'或双引号"括起来的任意文本
+\item 如果'本身也是一个字符，那就可以用""括起来
+\item 如果字符串内部既包含'又包含",可以用转义字符$\backslash$来标识
+\item 允许用r''表示''内部的字符串默认不转义
+\item 允许用'''\ldots{}'''的格式表示多行内容
+\end{itemize}
+\item 布尔值
+\begin{itemize}
+\item 只有True、False两种值
+\item and or not
+\end{itemize}
+\item 空值none
+\item 变量，动态语言与静态语言
+\item 常量
+\begin{itemize}
+\item 通常用全部大写的变量名表示常量
+\end{itemize}
+\end{itemize}
+\begin{verbatim}
+print('I\'m ok.')
+print('I\'m learning\nPython.')
+print('\\\n\\')
+print(r'''hello,\n
+world''')
+\end{verbatim}
+\subsubsection{{\bfseries\sffamily Important} 字符串与编码}
+\label{sec:orgeb048d4}
+\begin{itemize}
+\item State "Important"  from ""           \textit{[2018-05-03 Thu 10:49]}
+\end{itemize}
+
+\begin{itemize}
+\item \%运算符就是用来格式化字符串的。
+\item 在字符串内部，\%s表示用字符串替换，
+\item \%d表示用整数替换，
+\item 有几个\%?占位符，后面就跟几个变量或者值，顺序要对应好。
+\item 如果只有一个\%?，括号可以省略。
+\item 格式化整数和浮点数还可以指定是否补0和整数与小数的位数
+\item \%s永远起作用，它会把任何数据类型转换为字符串
+
+\item \%d	整数
+\item \%f	浮点数
+\item \%s	字符串
+\item \%x	十六进制整数
+\end{itemize}
+
+\begin{verbatim}
+print('Hello, %s' % 'world')
+print('Hi, %s, you have $%d.' % ('Michael', 1000000))
+print('%4d-%0004d' % (3, 1))
+print('%.2f' % 3.1415926)
+\end{verbatim}
+\subsubsection{list与tuple \textit{<2018-05-03 Thu>}}
+\label{sec:orgd7cdd9f}
+\begin{enumerate}
+\item list
+\label{sec:orgba0fc88}
+\begin{itemize}
+\item 索引是从0开始
+\item 用-1做索引，直接获取最后一个元素
+\item 往list中追加元素到末尾, classmates.append('Adam')
+\item 把元素插入到指定的位置, classmates.insert(1,'Jack')
+\item 删除list末尾的元素，用pop()
+\item 删除指定位置的元素，用pop(i)
+\end{itemize}
+\begin{verbatim}
+classmates = ['Michael', 'Bob', 'Tracy']
+print(classmates)
+print(len(classmates))
+print(classmates[-3])
+classmates.append('Adam')
+print(classmates)
+\end{verbatim}
+\item tuple
+\label{sec:orgac0af53}
+tuple和list非常类似，但是tuple一旦初始化就不能修改
+\begin{verbatim}
+classmates = ('Michael', 'Bob', 'Tracy')
+t = (1,)
+\end{verbatim}
+\end{enumerate}
+\subsubsection{{\bfseries\sffamily Important} 条件判断 \textit{<2018-05-04 Fri>}}
+\label{sec:org816d645}
+\begin{itemize}
+\item State "Important"  from ""           \textit{[2018-05-04 Fri 09:30]}
+\end{itemize}
+\begin{itemize}
+\item if语句的完整形式
+if <条件判断1>:
+    <执行1>
+elif <条件判断2>:
+    <执行2>
+elif <条件判断3>:
+    <执行3>
+else:
+    <执行4>
+\end{itemize}
+它是从上往下判断，如果在某个判断上是True，
+把该判断对应的语句执行后，就忽略掉剩下的elif和else.
+\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+\begin{itemize}
+\item 只要条件为非零数值、非空字符串、非空list等，就判断为True，否则为False。\#
+\end{itemize}
+\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+\subsubsection{循环 \textit{<2018-05-04 Fri>}}
+\label{sec:org860ae57}
+\begin{itemize}
+\item for x in list:
+\item while x :
+\item break
+\item continue
+\end{itemize}
+\begin{verbatim}
+print(range(5))
+print(list(range(5)))
+for i in range(5):
+    print(i)
+\end{verbatim}
+\subsubsection{使用dict \textit{<2018-05-05 Sat>}}
+\label{sec:org42bc701}
+dict全称dictionary，在其他语言中也称为map，
+使用键-值（key-value）存储，具有极快的查找速度。
+把数据放入dict的方法，除了初始化时指定外，还可以通过key放入
+要避免key不存在的错误，有两种办法:
+\begin{itemize}
+\item 通过in判断key是否存在
+\item 通过dict提供的get()方法，如果key不存在，
+可以返回None，或者自己指定的value
+\end{itemize}
+要删除一个key，用pop(key)方法，对应的value也会从dict中删除
+请务必注意，dict内部存放的顺序和key放入的顺序是没有关系的
+\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+\#\#  和list比较，dict有以下几个特点：
+\#\#  查找和插入的速度极快，不会随着key的增加而变慢；
+\#\#  需要占用大量的内存，内存浪费多。
+\#\#
+\#\#  而list相反：
+\#\#  查找和插入的时间随着元素的增加而增加；
+\#\#  占用空间小，浪费内存很少。
+\#\#  所以，dict是用空间来换取时间的一种方法。
+\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+\begin{itemize}
+\item 哈希算法（Hash）
+\item 作为key的对象就不能变。在Python中，字符串、整数等都是不可变的，
+因此，可以放心地作为key。而list是可变的，就不能作为key
+\end{itemize}
+\begin{verbatim}
+d={'Michael': 95, 'Bob':75, 'Tracy':85}
+d['Adam'] = 67
+print(d['Michael'])
+print('Adam' in d)
+print(d.get('Tom', 0))
+print(d.pop('Bob'))
+print(d)
+\end{verbatim}
+\subsubsection{使用set \textit{<2018-05-05 Sat>}}
+\label{sec:org8f13606}
+\begin{itemize}
+\item set和dict类似，也是一组key的集合，但不存储value。
+由于key不能重复，所以，在set中，没有重复的key。
+\item 通过add(key)方法可以添加元素到set中
+\item 过remove(key)方法可以删除元素
+\end{itemize}
+\begin{verbatim}
+s = set([1, 2, 3])
+print(s)
+s1 = set([1, 2, 3])
+s2 = set([2, 3, 4])
+print(s1 & s2)
+print(s1 | s2)
+print(set((1,2,3)))
+# print(set((1,[2,3])))
+new_dict={'Wang':59}
+new_dict['Ligy']=100
+print(new_dict)
+\end{verbatim}
+
+\subsection{函数}
+\label{sec:org55b5665}
+\subsubsection{调用函数 \textit{<2018-05-06 Sun>}}
+\label{sec:orgc0814b7}
+\begin{itemize}
+\item 可以在交互式命令行通过help(abs)查看abs函数的帮助信息
+\end{itemize}
+\subsubsection{数据类型转换 \textit{<2018-05-06 Sun>}}
+\label{sec:org923b99d}
+\begin{itemize}
+\item int('123')
+\item float('12.4')
+\item str(1.2)
+\item bool(1)
+\item bool('')
+\item 函数名其实就是指向一个函数对象的引用，
+完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名
+\end{itemize}
+\begin{verbatim}
+print(bool("2"))
+a = abs
+print(a(-9))
+tuple_={'255':hex(int('255'))}
+tuple_['1000']=hex(int('1000'))
+print(tuple_['255'],tuple_['1000'])
+print('255的16进制表示为%s\n1000的16进制表示为%s' % (hex(255), hex(1000)))
+\end{verbatim}
+\subsubsection{定义函数 \textit{<2018-05-06 Sun>}}
+\label{sec:org6a59ec4}
+\begin{itemize}
+\item 定义一个函数要使用def语句，依次写出函数名、括号、
+括号中的参数和冒号:，然后，在缩进块中编写函数体，
+函数的返回值用return语句返回。
+\item 函数体内部的语句在执行时，一旦执行到return时，
+函数就执行完毕，并将结果返回
+\item 如果没有return语句，函数执行完毕后也会返回结果，只是结果为None
+\item 果你已经把my\(_{\text{abs}}\)()的函数定义保存为abstest.py文件了，
+那么，可以在该文件的当前目录下启动Python解释器，
+用from abstest import my\(_{\text{abs来导入my}}\)\(_{\text{abs}}\)()函数，
+注意abstest是文件名（不含.py扩展名）
+\item pass语句什么都不做，那有什么用？实际上pass可以用来作为占位符，
+比如现在还没想好怎么写函数的代码，就可以先放一个pass，
+让代码能运行起来。
+\end{itemize}
+\begin{verbatim}
+def my_print(x):
+    print('what\'s up man?')
+    # return x*x
+a=my_print(3)
+print(a)
+\end{verbatim}
+\begin{enumerate}
+\item 空函数
+\label{sec:org1ba106f}
+\item 参数检查
+\label{sec:orgaa9edff}
+数据类型检查可以用内置函数isinstance()实现。
+\begin{verbatim}
+def my_abs(x):
+    if not isinstance(x, (int, float)):
+        raise TypeError('bad operand type')
+    if x >= 0:
+        return x
+    else:
+        return -x
+my_abs('A')
+\end{verbatim}
+\item 返回多个值
+\label{sec:org87da2d0}
+Python的函数返回多值其实就是返回一个tuple，但写起来更方便
+return nx, ny
+\end{enumerate}
+\subsubsection{函数的参数 \textit{<2018-05-07 Mon>}}
+\label{sec:org65056ba}
+\begin{itemize}
+\item 位置参数 power(x), power(x, n), 调用函数时，
+传入的两个值按照位置顺序依次赋给参数x和n
+\item 默认参数 power(x, n=2)
+设置默认参数时，有几点要注意:
+\begin{itemize}
+\item 一是必选参数在前，默认参数在后，否则Python的解释器会报错
+\item 二是当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。
+变化小的参数就可以作为默认参数。
+\item 有多个默认参数时，调用的时候，既可以按顺序提供默认参数，
+比如调用enroll('Bob', 'M', 7)用在参数age上，
+city参数由于没有提供，仍然使用默认值。
+\item 也可以不按顺序提供部分默认参数。
+当不按顺序提供部分默认参数时，需要把参数名写上。
+\item 定义默认参数要牢记一点：默认参数必须指向不变对象！
+\end{itemize}
+\end{itemize}
+\begin{verbatim}
+def add_end(L=[]):
+    if L is None:
+        L = []
+    L.append('END')
+    return L
+print(add_end())
+print(add_end())
+
+def add_end(L=None):
+    if L is None:
+        L = []
+    L.append('END')
+    return L
+print(add_end())
+print(add_end())
+\end{verbatim}
+\begin{enumerate}
+\item {\bfseries\sffamily TODO} 可变参数
+\label{sec:orga7c69ed}
+\begin{itemize}
+\item State "TODO"       from ""           \textit{[2018-05-07 Mon 19:18]}
+\end{itemize}
+\item {\bfseries\sffamily TODO} 关键字参数
+\label{sec:orgd8c2c9b}
+\begin{itemize}
+\item State "TODO"       from ""           \textit{[2018-05-07 Mon 19:19]}
+\end{itemize}
+\item {\bfseries\sffamily TODO} 命名关键字参数
+\label{sec:orgcf8c1b0}
+\begin{itemize}
+\item State "TODO"       from ""           \textit{[2018-05-07 Mon 19:20]}
+\end{itemize}
+\item {\bfseries\sffamily TODO} 参数组合
+\label{sec:org015fc41}
+\begin{itemize}
+\item State "TODO"       from ""           \textit{[2018-05-07 Mon 19:20]}
+\end{itemize}
+\item {\bfseries\sffamily TODO} 小结
+\label{sec:org64fc24a}
+\begin{itemize}
+\item State "TODO"       from ""           \textit{[2018-05-07 Mon 19:20]}
+\end{itemize}
+\end{enumerate}
+\subsubsection{{\bfseries\sffamily TODO} 递归函数 \textit{<2018-05-07 Mon>}}
+\label{sec:org0428bb8}
+\begin{itemize}
+\item State "TODO"       from ""           \textit{[2018-05-07 Mon 19:24]}
+\end{itemize}
+\subsection{高级特性}
+\label{sec:orge3361b9}
+在Python中，代码不是越多越好，而是越少越好。
+代码不是越复杂越好，而是越简单越好。
+\subsubsection{slice 切片 \textit{<2018-05-07 Mon>}}
+\label{sec:orgd070269}
+L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+
+\begin{itemize}
+\item 取前3个元素 L[0:3]
+\item 倒数切片 L[-2:]
+\item L[:2] 索引 L[0], L[1]
+\item 空的list也可以用L[:1]的方式索引
+\item 倒序索引 L[-1::-1]
+\end{itemize}
+\begin{verbatim}
+L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+print(len(L))
+#print(L[:3])
+#print(L[1:3])
+#print(L[-5])
+print(L[-4:100])
+print(L[-1::-1])
+print(L[0])
+N = list(range(40))
+print(N[:20:3])
+print(N[:])
+print((0, 1, 2, 3, 4, 5, 6, 7, 8)[:3])
+print('abcdefghi'[::2])
+L1=''
+print(L1[:-1])
+print(len(L1))
+def trim(str_):
+    if not isinstance(str_, str):
+        raise TypeError('bad operand type')
+
+    while str_[:1]==' ':
+        str_=str_[1:]
+        print(str_)
+    while str_[-1:]==' ':
+        str_=str_[-len(str_):-2]
+        print(str_)
+    return str_
+\end{verbatim}
+\subsubsection{iteration 迭代 \textit{<2018-05-08 Tue>}}
+\label{sec:org9273557}
+\begin{itemize}
+\item 如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，
+这种遍历我们称为迭代（Iteration）。
+\item 在Python中，迭代是通过for \ldots{} in来完成的，而很多语言比如C语言，
+迭代list是通过下标完成的，比如Java代码
+\item list这种数据类型虽然有下标，但很多其他数据类型是没有下标的，但是，
+只要是可迭代对象，无论有无下标，都可以迭代，比如dict就可以迭代
+\item 默认情况下，dict迭代的是key。如果要迭代value，可以用for value in d.values()，
+如果要同时迭代key和value，可以用for k, v in d.items()。
+\item 由于字符串也是可迭代对象，因此，也可以作用于for循环
+\item 如何判断一个对象是可迭代对象呢？
+方法是通过collections模块的Iterable类型判断
+\item enumerate函数可以把一个list变成索引-元素对，
+这样就可以在for循环中同时迭代索引和元素本身
+\item 上面的for循环里，同时引用了两个变量，在Python里是很常见的
+，比如下面的代码
+\end{itemize}
+\begin{verbatim}
+d = {'a': 1, 'b': 2, 'c': 3}
+for k, v in d.items():
+    print(k, v)
+for ch in 'AbC':
+    print(ch, 'Abc'[::-1])
+from collections import Iterable
+print(isinstance('abc', Iterable)) # str是否可迭代
+for i, value in enumerate(['A', 'B', 'C']):
+    print(i, value)
+for x, y in [(1, 'a'), (2, d), (3, v)]:
+    print(x, y)
+\end{verbatim}
+
+\subsubsection{list comprehensions 列表生成式 \textit{<2018-05-21 Mon>}}
+\label{sec:org6967a6c}
+列表生成式则可以用一行语句代替循环生成上面的list
+\begin{verbatim}
+print([x*x for x in range(1,11)])
+print([x*x for x in range(1,11) if x%3==0])
+print([m+n for m in 'abc' for n in 'xyz'])
+import os
+print(os.listdir('.'))
+print([d for d in os.listdir('.')])
+print('ABcd'.lower(), 'fdsa'.upper())
+print('abc'[2])
+L = ['Hello', 'World', 18, 'Apple', None]
+print([s.lower() for s in L if isinstance(s, str)])
+print([s.lower() if isinstance(s, str) else s for s in L])
+\end{verbatim}
+
+\subsubsection{generator 生成器 \textit{<2018-05-24 Thu>}}
+\label{sec:org214c9ac}
+受到内存限制，列表容量肯定是有限的,
+在Python中，这种一边循环一边计算的机制，称为生成器：generator。
+创建一个generator的方法:
+\begin{itemize}
+\item 第一种方法，只要把一个列表生成式的[]改成()，就创建了一个generator
+\item 另一种，定义包含yield关键字的的函数, 在循环中不断yield.
+如果想要拿到返回值，必须捕获StopIteration错误，
+返回值包含在StopIteration的value中.
+\end{itemize}
+\#杨辉三角
+\begin{verbatim}
+#杨辉三角
+def triangles():
+    # n = 0
+    # L1 = [1, 0]
+    # while True:
+    #     if n == 0 :
+    #         yield L1[:-1]
+    #     elif n == 1 :
+    #         L1.insert(1, 1)
+    #         yield L1[:-1]
+    #     else:
+    #         L = []
+    #         L.insert(0, 1)
+    #         for i in range(1, n):
+    #             L.insert(i, L1[i-1] + L1[i])
+    #         L.insert(len(L), 1)
+    #         yield L
+    #         L1 = L
+    #     n = n + 1
+    # return 'done'
+
+    L = [1]
+    yield L
+    L = L + [1]
+    yield L
+    while True:
+        L = [1] + [L[i] + L[i+1] for i in range(0, len(L) -1 )] + [1]
+        yield L
+
+
+n = 0
+results = []
+for t in triangles():
+    print(t)
+    results.append(t)
+    n = n + 1
+    if n == 10:
+        break
+if results == [
+    [1],
+    [1, 1],
+    [1, 2, 1],
+    [1, 3, 3, 1],
+    [1, 4, 6, 4, 1],
+    [1, 5, 10, 10, 5, 1],
+    [1, 6, 15, 20, 15, 6, 1],
+    [1, 7, 21, 35, 35, 21, 7, 1],
+    [1, 8, 28, 56, 70, 56, 28, 8, 1],
+    [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
+]:
+    print('测试通过!')
+else:
+    print('测试失败!')
+\end{verbatim}
+
+\begin{verbatim}
+g=(x*x for x in range(9))
+print(next(g))
+print(next(g))
+print(next(g))
+print('????')
+for i in g:
+    print(i)
+print()
+def fibnacci(N):
+    n,a,b=0,0,1
+    while n < N:
+        yield b
+        a,b=b,a+b
+        n=n+1
+    return 'done'
+f= fibnacci(9)
+for i in f:
+    print(i)
+\end{verbatim}
+
+\subsubsection{Iterator 迭代器 \textit{<2018-05-25 Fri>}}
+\label{sec:org02ee4cb}
+可以使用isinstance()判断一个对象是否是Iterable
+可以被next()函数调用并不断返回下一个值的对象称为Iterator
+生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator
+把list、dict、str等Iterable变成Iterator可以使用iter()函数
+Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算
+\begin{itemize}
+\item 凡是可作用于for循环的对象都是Iterable类型
+\item 凡是可作用于next()函数的对象都是Iterator类型
+\item Python的for循环本质上就是通过不断调用next()函数实现的
+\end{itemize}
+\begin{verbatim}
+from collections import Iterable
+print(isinstance([], Iterable))
+print(isinstance({}, Iterable))
+print(isinstance('abs', Iterable))
+print(isinstance((x for x in range(9)), Iterable))
+print(isinstance(range(9), Iterable))
+from collections import Iterator
+isinstance((x for x in range(10)), Iterator)
+
+\end{verbatim}
+\subsection{{\bfseries\sffamily TODO} 函数式编程}
+\label{sec:org04e6682}
+\begin{itemize}
+\item State "TODO"       from ""           \textit{[2018-05-25 Fri 16:52]}
+\end{itemize}
+\subsection{module 模块\textit{<2018-05-25 Fri>}}
+\label{sec:orge90aec7}
+为了避免模块名冲突，Python引入了按目录来组织模块的方法，
+称为Package（包）
+\begin{itemize}
+\item 一个abc.py的文件就是一个名字叫abc的模块，
+\item 一个xyz.py的文件就是一个名字叫xyz的模块
+\item 每一个包目录下面都会有一个\_\(_{\text{init}}\)\_\(_{\text{.py的文件}}\)，这个文件是必须存在的
+\item abc.py模块的名字就变成了mycompany.abc，类似的，
+\item xyz.py的模块名变成了mycompany.xyz
+\item \_\(_{\text{init}}\)\_\(_{\text{.py可以是空文件}}\)，也可以有Python代码，
+因为\_\(_{\text{init}}\)\_\(_{\text{.py本身就是一个模块}}\)，而它的模块名就是mycompany
+\item 可以有多级目录，组成多级层次的包结构
+\item 模块名不要和系统模块名冲突，最好先查看系统是否已存在该模块，
+检查方法是在Python交互环境执行import abc，若成功则说明系统存在此模块
+\end{itemize}
+\subsubsection{使用module \textit{<2018-06-06 Wed>}}
+\label{sec:orgd647233}
+\begin{verbatim}
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+'this is a test module'
+
+__author__ = 'ligy'
+
+
+import sys
+
+def test():
+    args = sys.argv
+    if len(args)==1:
+        print('Hello, world!')
+    elif len(args)==2:
+        print('Hello, %s!' % args[1])
+    else:
+        print('Too many arguments!')
+
+if __name__=='__main__':
+    print('this is in main')
+    test()
+\end{verbatim}
+\begin{itemize}
+\item 任何模块代码的第一个字符串都被视为模块的文档注释
+\item 使用\(_{\text{author}}\)\(_{\text{变量把作者写进去}}\)
+\item argv至少有一个元素，因为第一个参数永远是该.py文件的名称
+\item 这种if测试可以让一个模块通过命令行运行时执行一些额外的代码，
+最常见的就是运行测试
+\end{itemize}
+\subsubsection{作用域 \textit{<2018-06-06 Wed>}}
+\label{sec:org8cf4cf7}
+\begin{itemize}
+\item 有的函数和变量我们希望仅仅在模块内部使用
+\item 类似\_\(_{\text{xxx}}\)\_\(_{\text{这样的变量是特殊变量}}\)，可以被直接引用，但是有特殊用途，
+比如上面的\_\(_{\text{author}}\)\_\_，\_\(_{\text{name}}\)\_\_
+\item 类似\(_{\text{xxx和}}\)\_\(_{\text{xxx这样的函数或变量就是非公开的}}\)（private），
+不应该被直接引用，比如\(_{\text{abc}}\)，\_\(_{\text{abc等}}\)
+\end{itemize}
+\begin{verbatim}
+def _private_1(name):
+    return 'Hello, %s' % name
+
+def _private_2(name):
+    return 'Hi, %s' % name
+
+def greeting(name):
+    if len(name) > 3:
+        return _private_1(name)
+    else:
+        return _private_2(name)
+\end{verbatim}
+\begin{itemize}
+\item 调用greeting()函数不用关心内部的private函数细节，
+这也是一种非常有用的代码封装和抽象的方法
+\item 外部不需要引用的函数全部定义成private，
+只有外部需要引用的函数才定义为public
+\end{itemize}
+\subsubsection{安装第三方模块 \textit{<2018-06-07 Thu>}}
+\label{sec:org32b1075}
+pip install pillow
+\subsubsection{安装常用模块 \textit{<2018-06-07 Thu>}}
+\label{sec:org6bc7635}
+\begin{itemize}
+\item anaconda (狂蟒之灾电影）
+\item 默认情况下，Python解释器会搜索当前目录、所有已安装的内置模块和第三方模块，
+搜索路径存放在sys模块的path变量中
+\item 添加自己的搜索目录，有两种方法:
+\begin{itemize}
+\item sys.path.append('/Users/michael/my\(_{\text{py}}\)\(_{\text{scripts}}\)')
+\item 设置环境变量PYTHONPATH
+\end{itemize}
+\end{itemize}
+\subsection{面向对象编程 Object Oriented Programming}
+\label{sec:orgf4ddb0b}
+\begin{itemize}
+\item OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数.
+\item 在Python中，所有数据类型都可以视为对象，当然也可以自定义对象。
+\item 自定义的对象数据类型就是面向对象中的类（Class）的概念。
+\item 数据封装、继承和多态是面向对象的三大特点
+\end{itemize}
+\subsubsection{类与实例 Class Instance}
+\label{sec:orgbcf8e71}
+\begin{itemize}
+\item 类名通常是大写开头的单词
+\item 创建实例是通过类名+()实现的
+\item My\(_{\text{students本身则是一个类}}\)
+\item 可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性
+\item 有了\_\(_{\text{init}}\)\_\(_{\text{方法}}\)，在创建实例的时候，就不能传入空的参数了，
+必须传入与\_\(_{\text{init}}\)\_\(_{\text{方法匹配的参数}}\)，但self不需要传
+\item 除self之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、
+可变参数、关键字参数和命名关键字参数。
+\item 这些封装数据的函数是和Student类本身是关联起来的，我们称之为类的方法
+\item 义一个方法，除了第一个参数是self外，其他和普通函数一样。
+\item 调用一个方法，只需要在实例变量上直接调用，除了self不用传递，其他参数正常传入
+\end{itemize}
+
+\begin{itemize}
+\item 和静态语言不同，Python允许对实例变量绑定任何数据，也就是说，对于两个实例变量，
+虽然它们都是同一个类的不同实例，但拥有的变量名称都可能不同
+\end{itemize}
+
+\begin{verbatim}
+class My_students(object):
+    pass
+ligy = My_students()
+ligy.name = 'Li Gaoyang'
+ligy.age = 26
+print(ligy.name, ligy.age)
+jjkprint(My_students)
+class My_students2():
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+mark = My_students2('Mark', '99')
+john = My_students2('John Nash', 100)
+john.age = 70
+print(mark.name)
+mark.print_score()
+\end{verbatim}
+\subsubsection{访问限制 \textit{<2018-06-29 Fri>}}
+\label{sec:org272c06c}
+\begin{itemize}
+\item 外部代码还是可以自由地修改一个实例的name、score属性
+\item bart.score = 99
+\item 实例的变量名如果以\_\(_{\text{开头}}\)，就变成了一个私有变量（private），
+只有内部可以访问，外部不能访问
+\item 在方法中，可以对参数做检查，避免传入无效的参数
+\item 以双下划线开头，并且以双下划线结尾的，是特殊变量，
+特殊变量是可以直接访问的，不是private变量
+\item 一个下划线开头的实例变量名,但是，请视为私有变量，不要随意访问
+\item 仍然可以通过\(_{\text{Student}}\)\_\(_{\text{name来访问}}\)\_\(_{\text{name变量}}\)，但是强烈建议你不要这么干，
+因为不同版本的Python解释器可能会把\_\(_{\text{name改成不同的变量名}}\)
+\item 表面上看，外部代码“成功”地设置了\_\(_{\text{name变量}}\)，但实际上这个\_\(_{\text{name变量和class内部的}}\)\_\(_{\text{name变量不是一个变量}}\)！
+内部的\_\(_{\text{name变量已经被Python解释器自动改成了}}\)\(_{\text{Student}}\)\_\(_{\text{name}}\)，而外部代码给bart新增了一个\_\(_{\text{name变量}}\)
+\end{itemize}
+\begin{verbatim}
+class Student(object):
+    def __init__(self, name, gender):
+        self.name = name
+        self.__gender = gender
+    def set_gender(self, gender):
+        self.__gender = gender
+    def get_gender(self):
+        return self.__gender
+bart = Student('Bart', 'male')
+if bart.get_gender() != 'male':
+    print('测试失败!')
+else:
+    bart.set_gender('female')
+    if bart.get_gender() != 'female':
+        print('测试失败!')
+    else:
+        print('测试成功!')
+
+\end{verbatim}
+
+\subsubsection{继承与多态 \textit{<2018-07-05 Thu>}}
+\label{sec:org5dbc53c}
+\begin{itemize}
+\item 继承最大的好处是子类获得了父类的全部功能
+\item 当子类和父类都存在相同的方法时，子类的方法覆盖了父类的方法
+\item 判断一个变量是否是某个类型可以用isinstance()判断
+\item 如果一个实例的数据类型是某个子类，那它的数据类型也可以被看做是父类
+\item 调用方只管调用，不管细节
+\end{itemize}
+“开闭”原：
+\begin{itemize}
+\item 对扩展开放：允许新增Animal子类
+\item 对修改封闭：不需要修改依赖Animal类型的run\(_{\text{twice}}\)()等函数
+\end{itemize}
+静态语言 vs 动态语言
+\begin{itemize}
+\item 对于静态语言（例如Java）来说，如果需要传入Animal类型，
+则传入的对象必须是Animal类型或者它的子类，否则，将无法调用run()方法
+\item 对于Python这样的动态语言来说，则不一定需要传入Animal类型。
+我们只需要保证传入的对象有一个run()方法就可以了
+\item 动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭
+,走起路来像鸭子”，那它就可以被看做是鸭子
+\end{itemize}
+小结
+\begin{itemize}
+\item 继承可以把父类的所有功能都直接拿过来，这样就不必重零做起，
+子类只需要新增自己特有的方法，也可以把父类不适合的方法覆盖重写。
+\item 动态语言的鸭子类型特点决定了继承不像静态语言那样是必须的。
+\end{itemize}
+\begin{verbatim}
+class Animal(object):
+    def run(self):
+        print('Animal is running...')
+class Dog(Animal):
+    def run(self):
+        print('Dog is running...')
+dog1 = Dog()
+dog1.run()
+dog1.run()
+\end{verbatim}
+
+\subsubsection{获取对象信息 \textit{<2018-08-10 Fri>}}
+\label{sec:org1f0ade8}
+\begin{itemize}
+\item 使用type()函数来判断对象类型
+\item 可以使用types模块中定义的常量来判断一个对象是否是函数
+\item 总是优先使用isinstance()判断类型，可以将指定类型及其子类"一网打尽"
+\item 获得一个对象的所有属性和方法，可以使用dir()函数
+\end{itemize}
+\begin{verbatim}
+print(type(123))
+print(type(abs))
+print(type('fda')==type(abs))
+import types
+def fn():
+    pass
+print(type(fn))
+print(type(fn)==types.FunctionType)
+print(type((x for x in range(9)))==types.GeneratorType)
+print(type([x for x in range(9)]))
+print(dir('dafdsa'))
+\end{verbatim}
+
+\section{Tensor flow 中文社区}
+\label{sec:org1c314b4}
+url:\url{http://www.tensorfly.cn/tfdoc/get\_started/introduction.html}
+\begin{verbatim}
+import tensorflow as tf
+\end{verbatim}
+\subsection{介绍}
+\label{sec:org90bd633}
+\subsubsection{intro\(_{\text{mnist}}\)}
+\label{sec:orgbf281e2}
+\begin{enumerate}
+\item mnist 数据集 \textit{<2018-05-05 Sat>}
+\label{sec:orgd12657b}
+\begin{itemize}
+\item mnist.train.images [6000, 28*28]
+数据集的标签是0到9的数字，是一个one-hot vector, (只有一个元素为1,其他为0.)
+0表示为 [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+\item mnist.train.labels [6000, 10]
+\end{itemize}
+\item softmax regression 介绍
+\label{sec:orgb1cfec8}
+\begin{itemize}
+\item softmax模型可以用来给不同的对象分配概率。即使在之后，我们训练更加精细的模型时，
+最后一步也需要用softmax来分配概率。
+\item 为了用python实现高效的数值计算，我们通常会使用函数库，比如NumPy，
+会把类似矩阵乘法这样的复杂运算使用其他外部语言实现。
+不幸的是，从外部计算切换回Python的每一个操作，仍然是一个很大的开销。
+\item Tensorflow不单独地运行单一的复杂计算，
+而是让我们可以先用图描述一系列可交互的计算操作，然后全部一起在Python之外运行。
+\end{itemize}
+\end{enumerate}
+\subsubsection{expert\(_{\text{mnist}}\)}
+\label{sec:orgc870cb3}
+\subsection{MNIST introduction}
+\label{sec:orgf936e7b}
+在机器学习模型设计时必须有一个单独的测试数据集不用于训练
+而是用来评估这个模型的性能，从而更加容易把设计的模型推广
+到其他数据集上（泛化）。
+\section{Google机器学习速成课程}
+\label{sec:org5cb3d6a}
+url:\url{https://developers.google.cn/machine-learning/crash-course/}
+\section{Python 命令笔记}
+\label{sec:org3ba885d}
+\subsection{\textit{<2018-05-21 Mon>}}
+\label{sec:org275a2d7}
+os.listdir('.')
+'AbC'.lower()
+'AbC'.upper()
+'abc'[2]
+for k, v in \{'x': 'A', 'y': 'B'\}.items():
+    pass
+L=[]
+L.append(x)
+L.pop()
+L.pop(3)
+d.pop('Jack')
+\subsection{\textit{<2018-05-24 Thu>}}
+\label{sec:org8c03e0c}
+可迭代对象：
+\begin{itemize}
+\item list
+\item tuple
+\item range(9)
+\item dictionary
+\item set
+\item str
+\item generator
+\begin{itemize}
+\item 生成器
+\item generator function
+\end{itemize}
+\end{itemize}
+\section{Plot scientific data using python}
+\label{sec:org889d86b}
+\subsection{'Colors in the default prop\(_{\text{cycle}}\)}
+\label{sec:org1f81da4}
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+prop_cycle = plt.rcParams['axes.prop_cycle']
+colors = prop_cycle.by_key()['color']
+lwbase = plt.rcParams['lines.linewidth']
+thin = lwbase / 2
+thick = lwbase * 3
+fig, axs = plt.subplots(nrows=2, ncols=2, sharex=True, sharey=True)
+for icol in range(2):
+    if icol == 0:
+        lwx, lwy = thin, lwbase
+    else:
+        lwx, lwy = lwbase, thick
+    for irow in range(2):
+        for i, color in enumerate(colors):
+            axs[irow, icol].axhline(i, color=color, lw=lwx, label=color)
+            axs[irow, icol].axvline(i, color=color, lw=lwy)
+        plt.legend()
+for irow in range(2):
+    axs[irow, 0].yaxis.set_ticks(np.arange(0, 10, 2))
+fig.suptitle('Colors in the default prop_cycle', fontsize='large')
+#plt.show()
+plt.savefig("Colors_in_the_default_prop_cycle.eps", dpi=None, facecolor='w', edgecolor='w', orientation='portrait', format="eps", bbox_inches='tight')
+print(plt.rcParams['axes.prop_cycle'].by_key()['color'])
+\end{verbatim}
+\section{git@github.com:lijin-THU/notes-python.git}
+\label{sec:org52c2968}
+\subsection{基础}
+\label{sec:orgada0f66}
+\subsubsection{文件读写 \textit{<2018-09-04 Tue>}}
+\label{sec:org04a0079}
+url: \url{https://github.com/lijin-THU/notes-python/blob/master/02-python-essentials/02.21-file-IO.ipynb}
+Control + RightClick
+\subsection{numpy \textit{<2018-09-04 Tue 11:14>}}
+\label{sec:orgbc9721d}
+\subsubsection{overview \textit{<2018-09-08 Sat>}}
+\label{sec:org091d3a4}
+\begin{itemize}
+\item numpy中array()方法与基本库中list有很大不同，注意不要混淆！！！
+\item 修改array的形状,shape方法
+\item *乘法仍然是对应元素的乘积，并不是按照矩阵乘法来计算
+\item 矩阵乘法为A.dot(b)
+\item numpy.linspace(start\(_{\text{point}}\), end\(_{\text{point}}\), point\(_{\text{number}}\))
+\item 从数组中选择元素==
+\end{itemize}
+\begin{verbatim}
+a = [1, 2, 3, 9]
+import numpy
+b = numpy.array(a)
+print(a * 2)
+print(b * 2)
+#print(a.shape)
+print(b.shape)
+b.shape = 2,2
+print(b)
+print(b * b)
+c = numpy.linspace(0, 2*numpy.pi, 21)
+sin_c = numpy.sin(c)
+print(c)
+print(sin_c)
+print(sin_c > 0.8)
+print(c[sin_c > 0.8])
+print('s')
+print(c[[False, False, False, True, True, True, True, True, False, False, False, False
+, False, False, False, False, False, False, False, False, False]])
+print(sin_c[sin_c > 0.8])
+\end{verbatim}
+\subsubsection{matplotlib basics \textit{<2018-09-08 Sat 17:11>}}
+\label{sec:org9575366}
+\begin{itemize}
+\item 清除、关闭图像 clf(), close(), close('all')
+\end{itemize}
+\begin{verbatim}
+from numpy import *
+from matplotlib.pyplot import *
+t = linspace(0, 2*pi, 50)
+x = sin(t)
+y = cos(t)
+figure()
+plot(x)
+figure()
+plot(y)
+\end{verbatim}
+
+\subsubsection{numpy array \textit{<2018-09-08 Sat 18:12>}}
+\label{sec:org088bd5a}
+\begin{itemize}
+\item 查看形状, np.shape(a)
+\item 查看元素数目, np.size(a)
+\item 查看数组维数, np.ndim(b)
+\item 与列表不同，数组中要求所有元素的 dtype 是一样的，
+如果传入参数的类型与数组类型不一样，需要按照已有的类型进行转换
+\item 多维数组索引, a[1, 3], a[1]
+\item 切片是引用, 因此，改变 b 会改变 a 的值。与列表(list)不同
+\item np.arange 函数来产生等差数组
+\item 花式索引需要指定索引位置, a[\[1, 2, -3\]]。还可以使用布尔数组来花式索引。
+但是list不行。
+\item 与切片不同，花式索引返回的是原对象的一个复制而不是引用
+\item where 函数会返回所有非零元素的索引
+\end{itemize}
+\begin{verbatim}
+import numpy as np
+a = [i for i in range(10)]
+a.append('dog')
+aa = [i for i in range(10)]
+print(a)
+b = np.array(a)
+bb = np.array(aa)
+print(b.dtype, b.itemsize, b.shape, np.shape(a), np.ndim(a))
+c = np.arange(0, 10, 2)
+d = range(0, 10, 2)
+print(type(c), c > 3, b[[0, 3, 2]], np.where(c[c > 3]))
+print(type(d))
+\end{verbatim}
+\subsubsection{array types \textit{<2018-09-09 Sun 15:47>}}
+\label{sec:org0f4876b}
+\begin{itemize}
+\item 复数数组
+\item 复共轭 a.conj()
+\end{itemize}
+\begin{verbatim}
+import numpy as np
+a = np.array([1 + 1j, 2, 3, 4])
+print(a.real, a.imag, a.conj())
+\end{verbatim}
+\subsubsection{array calculation method \textit{<2018-09-09 Sun 16:57>}}
+\label{sec:org6da5cb8}
+\begin{itemize}
+\item 求所有元素的和 sum(a)
+\item 沿着第一维求和 sum(a, axis=0)
+\item 沿着第二维求和 sum(a, axis=1)
+\item 求所有元素的乘积 prod(a), a.prod()
+\item 全局最小 a.min()
+\item 沿着某个轴的最小 a.min(axis=1)
+\item 最大最小值的位置 a.argmin(), a.argmax()
+\item 均值 a.mean(axis=1)
+\item 加权平均 a.average(axis=1), a.average(axis=0, weights=[1,2])
+\end{itemize}
+\subsubsection{numpy sorting \textit{<2018-09-09 Sun>}}
+\label{sec:org236b0f3}
+\subsection{{\bfseries\sffamily TODO} interfacing with other languages \textit{<2018-10-03 Wed>}}
+\label{sec:org3a109b1}
+\begin{itemize}
+\item State "TODO"       from              \textit{[2018-10-03 Wed 20:15]}
+\end{itemize}
+\section{Coursera-ML-AndrewNg-Notes}
+\label{sec:orgd48c406}
+\subsection{\textit{<2019-03-30 Sat 01:00> } 课时12 梯度下降}
+\label{sec:orgecaa62c}
+\begin{itemize}
+\item alpha是learning rate，可以是常数，不能太大或太小。
+\item 应该同时更新Theta\(_{\text{0,Theta}}\)\(_{\text{1,\ldots{}Theta}}\)\(_{\text{n}}\)
+\item 事实证明线性回规的cost function都是弓形函数（凸函数，convex function），
+只有一个全局最小，没有局部最小。
+\item batch Gradient Descent: 每次更新时遍历所有training set.
+\item 也可以不遍历所有training set.
+\item Normal equation方法不适用于大量training set,梯度下降可以。
+\end{itemize}
+\end{document}
