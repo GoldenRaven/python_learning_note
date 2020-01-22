@@ -1066,3 +1066,22 @@ print(a.real, a.imag, a.conj())
 ** 疑问
    - 变量的creation和initialization区别是什么？都在执行什么操作？
      是否类似于C中的变量声明与定义？
+* Handson-ml
+** numpy
+*** creating arrays <2020-01-23 Thu>
+#+begin_src python :results output
+import numpy as np
+a = np.zeros(4)
+b = np.zeros((3,2))
+#a.append(9)
+print(a)
+print()
+print(b)
+#+end_src
+
+#+RESULTS:
+: [0. 0. 0. 0.]
+:
+: [[0. 0.]
+:  [0. 0.]
+:  [0. 0.]]
