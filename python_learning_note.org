@@ -1067,21 +1067,63 @@ print(a.real, a.imag, a.conj())
    - 变量的creation和initialization区别是什么？都在执行什么操作？
      是否类似于C中的变量声明与定义？
 * Handson-ml
-** numpy
+** numpy and pandas
 *** creating arrays <2020-01-23 Thu>
 #+begin_src python :results output
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 a = np.zeros(4)
-b = np.zeros((3,2))
+b = np.ones((3,2))
 #a.append(9)
 print(a)
-print()
+print(np.linspace(1,8,5))
 print(b)
+c = np.random.rand(20, 10)
+fig = plt.figure(1, figsize=(7, 6))
+plt.imshow(np.sin(c))
+s = pd.Series(np.random.randn(5), index=['a','b','c','d','e'])
+d = {'a' : 1, 'b' : 2, 'c' : 3, 'd' : 4}
+s2 = pd.Series(d, index=['d','c','b'])
+print(s)
+print()
+print(s[[2, 1]])
+print(s[s > 1])
+print()
+print(s2)
+d2 = {'a':list(range(3)), 'b':list(range(3,6)), 'c':list(range(6,9))}
+df = pd.DataFrame(d2, index=[1,2,3], columns=['first', 'second', 'a'])
+print(df)
+#plt.show()
+#return 'python-matplot-fig2.png' # return filename to org-mode
 #+end_src
 
 #+RESULTS:
-: [0. 0. 0. 0.]
-:
-: [[0. 0.]
-:  [0. 0.]
-:  [0. 0.]]
+#+begin_example
+[0. 0. 0. 0.]
+[1.   2.75 4.5  6.25 8.  ]
+[[1. 1.]
+ [1. 1.]
+ [1. 1.]]
+a   -1.057267
+b   -0.306797
+c   -0.698427
+d    1.310988
+e   -0.103752
+dtype: float64
+
+c   -0.698427
+b   -0.306797
+dtype: float64
+d    1.310988
+dtype: float64
+
+d    4
+c    3
+b    2
+dtype: int64
+  first second  a
+1   NaN    NaN  0
+2   NaN    NaN  1
+3   NaN    NaN  2
+#+end_example
