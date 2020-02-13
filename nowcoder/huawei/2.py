@@ -1,0 +1,5 @@
+s1 = input()
+s2 = input()
+upper = s1.count(s2)
+lower = s1.count(s2.swapcase())
+print(upper + lower)
