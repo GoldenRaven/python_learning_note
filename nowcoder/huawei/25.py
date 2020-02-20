@@ -2,8 +2,8 @@ while True:
     try:
         key = input().lower()
         data = input()
-        # key = 'ligaoyang'
-        # data = 'ni hAO'
+        # key = 'igtxbesmnyrehanvuvqhukrtmpynmpdvjlppuq'
+        # data = 'wiumbxibguwicjfyvkznbqzvo'
         l = [list(key).index(x) for x in key]
         # print(l)
         index_ = list(set(l))
@@ -17,14 +17,14 @@ while True:
                 if i not in ll:
                     ll.append(i)
         # ll1 = ''.join(ll)
-        print(''.join(alpha))
-        print(''.join(ll))
+        # print(''.join(alpha))
+        # print(''.join(ll))
         data2 = []
         for i in range(len(data)):
             if data[i].isalpha() and data[i].isupper():
                 data2.append(ll[alpha.index(data[i].lower())].upper())
             elif data[i].isalpha() and data[i].islower():
-                data2.append(ll[alpha.index(data[i].lower())].lower())
+                data2.append(ll[alpha.index(data[i].lower())])
             else:
                 data2.append(data[i])
         data2 = ''.join(data2)
