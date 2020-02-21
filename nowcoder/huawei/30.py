@@ -1,5 +1,5 @@
-"""Given an int32 number, print it in English."""
 def int_to_en(num):
+    """Given an int32 number, print it in English."""
     d = {0 : 'zero', 1 : 'one', 2 : 'two', 3 : 'three', 4 : 'four', 5 : 'five',
           6 : 'six', 7 : 'seven', 8 : 'eight', 9 : 'nine', 10 : 'ten',
           11 : 'eleven', 12 : 'twelve', 13 : 'thirteen', 14 : 'fourteen',
@@ -11,9 +11,8 @@ def int_to_en(num):
     m = k * 1000
     b = m * 1000
     t = b * 1000
-
-    # print(789)
-    assert(0 <= num)
+    # assert(0 <= num)
+    assert 0 <= num <= 999999999
     if (num < 20):
         return d[num]
 
@@ -38,11 +37,13 @@ def int_to_en(num):
         else: return int_to_en(num // b) + ' billion ' + int_to_en(num % b)
 
     if (num % t == 0): return int_to_en(num // t) + ' trillion'
+    # elif (num // t >= 1): raise AssertionError
     else: return int_to_en(num // t) + ' trillion ' + int_to_en(num % t)
 
-    raise AssertionError('num is too large: %s' % str(num))
+
 while True:
     try:
         print(int_to_en(int(input())))
-    except:
+    except AssertionError:
+        print('error')
         break
